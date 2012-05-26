@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
+require 'coffee-script'
 require './config'
 require './helper'
 
@@ -10,4 +11,8 @@ get '/' do
   @counter = session[:counter]
   @msg = capitalize("hello world")
   erb :index
+end
+
+get '/application.js' do
+  coffee :application
 end
