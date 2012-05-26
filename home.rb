@@ -10,7 +10,7 @@ get '/' do
   session[:counter] += 1
   @counter = session[:counter]
   @msg = capitalize("hello world")
-  erb :index
+  haml :index
 end
 
 get '/application.js' do
