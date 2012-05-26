@@ -4,5 +4,7 @@ require 'sinatra'
 require './config'
 
 get '/' do
-  "Hello World"
+  session[:counter] ||= 0
+  session[:counter] += 1
+  "Hello World #{session[:counter]}"
 end
