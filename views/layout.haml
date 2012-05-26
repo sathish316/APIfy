@@ -2,6 +2,13 @@
   %head
     %title= 'Scrapbook'
     %script{type: 'text/javascript', src: 'application.js'}
+    %script{type: 'text/javascript', src: 'javascripts/bootstrap.min.js'}
     %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/styles.css'}
+    %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/bootstrap.min.css'}
+    %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/bootstrap-responsive.min.css'}
   %body
-    = yield
+    .container-fluid
+      .span2
+        Sidebar
+      .span8
+        = yield
