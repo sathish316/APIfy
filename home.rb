@@ -6,5 +6,6 @@ require './config'
 get '/' do
   session[:counter] ||= 0
   session[:counter] += 1
-  "Hello World #{session[:counter]}"
+  @counter = session[:counter]
+  erb :index
 end
