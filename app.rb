@@ -23,3 +23,15 @@ end
 get '/application.js' do
   coffee :application
 end
+
+get '/tutorial' do
+  haml :todo
+end
+
+get '/examples' do
+  haml :todo
+end
+
+get '/about' do
+  haml :todo
+end
