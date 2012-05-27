@@ -1,0 +1,14 @@
+%table
+  %tbody
+    %tr.attribute_row_template
+      %td
+        %a.btn.btn-mini.remove_attribute_btn{href: '#'}
+          %i.icon-minus
+      %td
+        %input.input-small{name: "resource[dom_attributes][name][:number]", type: 'text'}
+      %td
+        %input.input-medium{name: "resource[dom_attributes][selector][:number]", type: 'text'}
+      %td
+        %select.span2{name: "resource[dom_attributes][selector_type][:number]"}
+          %option css
+          %option xpath

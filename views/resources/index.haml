@@ -1,11 +1,23 @@
-%h1 Resources
-- @resources.each do |resource|
-  .resource_row
-    = resource.name
-    %dl.dl-horizontal
-      %dt Description
-      %dd
-        = resource.description || "-"
-      %dt API
-      %dd
-        = resource.api_path
+%h2 Apify APIs
+.content.span6
+  .resource_listing
+    - @resources.each do |resource|
+      .resource_row
+        %h4
+          %a{href: "/resources/#{resource.id}"}
+            = resource.name
+          %span.resource_actions
+            %a.btn.btn-mini.edit_api_btn{href: "/resources/#{resource.id}/edit"}
+              %i.icon-edit
+              Edit
+            %a.btn.btn-mini.btn-info.edit_api_btn{href: "/resources/#{resource.id}"}
+              %i.icon-ok
+              Test
+          .clear
+        %dl.dl-horizontal
+          %dt Description
+          %dd
+            = resource.description || "-"
+          %dt API
+          %dd
+            = "/api/#{resource.api_path}.json"

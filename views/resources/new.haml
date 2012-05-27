@@ -1,0 +1,26 @@
+%h2 Create API
+.row
+  %div
+    %form{action: "/resources", method: "POST", class: "form-horizontal"}
+      %fieldset
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :name}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html}
+        = partial :"resources/_api_path", template_engine: :haml
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key}
+        .control-group
+          %label.control-label DOM Attributes
+          .controls
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th
+                    %a.btn.btn-mini.add_attribute_btn{href: '#'}
+                      %i.icon-plus
+                  %th Attribute
+                  %th DOM Selector
+                  %th Selector Type
+              %tbody.attribute_rows
+        .actions
+          %input.btn.btn-primary{type: 'Submit', value: 'Create API'}
+    = partial :"resources/_attribute_row_template"

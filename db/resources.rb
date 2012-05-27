@@ -4,11 +4,13 @@ def initialize_resources
     html: "http://www.imdb.com/chart/top",
     api_path: "imdb_top250_movies",
     key: :rank})
-  resource.update_attributes!(dom_attributes: {
-    rank: {css: "div#main table td:nth-child(1)"},
-    rating: {css: "div#main table td:nth-child(2)"},
-    title: {css: "div#main table td:nth-child(3)"},
-    votes: {css: "div#main table td:nth-child(4)"}})
+  resource.update_attributes!(
+    description: "IMDB Top 250 Movies API",
+    dom_attributes: {
+      rank: {css: "div#main table td:nth-child(1)"},
+      rating: {css: "div#main table td:nth-child(2)"},
+      title: {css: "div#main table td:nth-child(3)"},
+      votes: {css: "div#main table td:nth-child(4)"}})
   initialize_resource(resource.api_path)
 
   resource = Resource.find_or_create_by({
@@ -16,9 +18,11 @@ def initialize_resources
     html: "http://www.dominos.co.in/menuDetails_ajx.php?catgId=1",
     api_path: "dominos_pizzas",
     key: :name}) 
-  resource.update_attributes!(dom_attributes: {
-    name: {css: ".menu_lft li a"}, 
-    image_url: {xpath: "//li//input//@value"}})
+  resource.update_attributes!(
+    description: "Dominos Pizza Menu API",
+    dom_attributes: {
+      name: {css: ".menu_lft li a"}, 
+      image_url: {xpath: "//li//input//@value"}})
   initialize_resource(resource.api_path)
 end
 

@@ -1,0 +1,30 @@
+%h2
+  = "API::#{@resource.name}"
+.row
+  .span6
+    %dl.dl-horizontal
+      .section
+        %dt Description
+        %dd
+          = @resource.description || @resource.name
+      .section
+        %dt Index API
+        %dd
+          .api_url
+            = "/api/#{@resource.api_path}.json"
+          .well#index_json_output
+            Test API JSON output here
+          .api_test
+            %button.btn.btn-info#test_index_api{"data-url" => "/api/#{@resource.api_path}.json"} Test API
+      .section
+        %dt Show API
+        %dd
+          .api_url
+            %span.api_path
+              = "/api/#{@resource.api_path}/"
+              %input.input-small#show_api_id
+              = ".json"
+          .well#show_json_output
+            Test API JSON output here
+          .api_test
+            %button.btn.btn-info#test_show_api{"data-url" => "/api/#{@resource.api_path}/:id.json"} Test API

@@ -1,5 +1,30 @@
-$blue: #3bbfce;
-
-.content {
-  color: $blue;
+.content{
+  margin-top: 20px;
+}
+.clear {
+  clear: both;
+}
+.section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.api_url {
+  margin-bottom: 10px;
+}
+#index_json_output {
+  min-height: 100px;
+}
+#show_json_output {
+  min-height: 50px;
+}
+.resource_actions {
+  float: right;
+}
+.attributes_label {
+  valign: center;
+}
+.actions {
+  float: right;
 }

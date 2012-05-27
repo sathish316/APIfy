@@ -1,12 +1,37 @@
+<!DOCTYPE HTML>
 %html
   %head
     %title= 'Apify'
-    %script{type: 'text/javascript', src: 'application.js'}
-    %script{type: 'text/javascript', src: 'javascripts/bootstrap.min.js'}
-    %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/styles.css'}
-    %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/bootstrap.min.css'}
-    %link{rel: 'stylesheet', type: "text/css", href: 'stylesheets/bootstrap-responsive.min.css'}
+    %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
+    %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
+    %script{type: 'text/javascript', src: '/application.js'}
+    %script{type: 'text/javascript', src: '/javascripts/app.js'}
+    %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/bootstrap.min.css'}
+    %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/bootstrap-responsive.min.css'}
+    %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/styles.css'}
   %body
     .container-fluid
-      .span8
+      .span8.offset2
+        .navbar
+          .navbar-inner
+            .container
+              %a.brand{href: '/resources'}
+                Apify
+              .nav-collapse
+                %ul.nav
+                  %li{class: ('active' if @current_page == 'resources')}
+                    %a{href: '/resources'}
+                      APIs
+                  %li{class: ('active' if (@current_page == 'create_resource'))}
+                    %a{href: '/resources/new'}
+                      Create API
+                  %li
+                    %a{href: '/tutorial'}
+                      Tutorial
+                  %li
+                    %a{href: '/examples'}
+                      Examples
+                  %li
+                    %a{href: '/about'}
+                      About
         = yield

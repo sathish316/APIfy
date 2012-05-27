@@ -1,0 +1,44 @@
+%h2
+  Edit
+  = "API::#{@resource.name}"
+.row
+  %div
+    %form{action: "/resources/#{@resource.id}", method: "POST", class: "form-horizontal"}
+      %fieldset
+        %input{type: 'hidden', name: '_method', value: 'PUT'}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html}
+        = partial :"resources/_api_path", template_engine: :haml
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key}
+        .control-group
+          %label.control-label DOM Attributes
+          .controls
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th
+                    %a.btn.btn-mini.add_attribute_btn{href: '#'}
+                      %i.icon-plus
+                  %th Attribute
+                  %th DOM Selector
+                  %th Selector Type
+              %tbody.attribute_rows
+                - count = 0
+                - @resource.dom_attributes.each do |name,selector|
+                  %tr.attribute_row
+                    %td
+                      %a.btn.btn-mini.remove_attribute_btn{href: '#'}
+                        %i.icon-minus
+                    %td
+                      %input.input-small{name: "resource[dom_attributes][name][#{count}]", type: 'text', value: name}
+                    %td
+                      %input.input-medium{name: "resource[dom_attributes][selector][#{count}]", type: 'text', value: (selector['css'] || selector['xpath'])}
+                    %td
+                      %select.span2{name: "resource[dom_attributes][selector_type][#{count}]", value: (selector['css'] ? 'css' : 'xpath')}
+                        %option css
+                        %option xpath
+                  - count += 1
+
+        .actions
+          %input.btn.btn-primary{type: 'Submit', value: 'Update'}
+    = partial :"resources/_attribute_row_template"
