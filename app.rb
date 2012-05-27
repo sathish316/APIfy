@@ -17,7 +17,7 @@ require './api'
 require './resource'
 
 get '/' do
-  haml :index
+  redirect '/resources'
 end
 
 get '/application.js' do

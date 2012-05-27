@@ -28,5 +28,5 @@ configure do
 end
 
 configure do
-  # initialize_resources
+  initialize_resources
 end
