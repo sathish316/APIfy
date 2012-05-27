@@ -20,4 +20,6 @@
             = resource.description || "-"
           %dt API
           %dd
-            = "/api/#{resource.api_path}.json"
+            - url = "/api/#{resource.api_path}.json"
+            %a{href: url}
+              = url
