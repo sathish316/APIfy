@@ -1,4 +1,4 @@
-require 'json'
+require 'sinatra'
 
 get '/api/:resource.json' do
   content_type :json

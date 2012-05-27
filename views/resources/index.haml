@@ -1,0 +1,11 @@
+%h1 Resources
+- @resources.each do |resource|
+  .resource_row
+    = resource.name
+    %dl.dl-horizontal
+      %dt Description
+      %dd
+        = resource.description || "-"
+      %dt API
+      %dd
+        = resource.api_path

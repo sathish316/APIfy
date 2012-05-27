@@ -1,6 +1,7 @@
 class Resource
   include Mongoid::Document
   field :name, type: String
+  field :description, type: String
   field :html, type: String
   field :api_path, type: String
   field :key, type: String

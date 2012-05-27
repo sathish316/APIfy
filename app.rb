@@ -7,11 +7,13 @@ require 'scrapify'
 require 'active_support'
 require 'active_support/inflector'
 require 'mongoid'
+require 'json'
 require './models/resource'
 require './db/resources'
 require './config'
 require './helper'
 require './api'
+require './resource'
 
 get '/' do
   haml :index
