@@ -13,6 +13,10 @@ class Resource
     eval code
   end
 
+  def klass
+    klass_name.constantize
+  end
+
   private
 
   def code

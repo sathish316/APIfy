@@ -5,10 +5,10 @@ def initialize_resources
     api_path: "imdb_top250_movies",
     key: :rank})
   resource.update_attributes!(dom_attributes: {
-    rank: {xpath: "td:nth-child(1)"},
-    rating: {xpath: "td:nth-child(2)"},
-    title: {xpath: "td:nth=child(3)"},
-    votes: {xpath: "td:nth-child(4)"}})
+    rank: {css: "div#main table td:nth-child(1)"},
+    rating: {css: "div#main table td:nth-child(2)"},
+    title: {css: "div#main table td:nth-child(3)"},
+    votes: {css: "div#main table td:nth-child(4)"}})
   initialize_resource(resource.api_path)
 
   resource = Resource.find_or_create_by({
@@ -23,5 +23,7 @@ def initialize_resources
 end
 
 def initialize_resource(api_path)
-  Resource.first(conditions: {api_path: api_path}).init!
+  resource = Resource.first(conditions: {api_path: api_path})
+  resource.init!
+  resource.klass
 end

@@ -12,7 +12,6 @@ get '/api/:resource/:id.json' do
   model.find(params[:id]).to_json
 end
 
-def model_for(resource)
-  initialize_resource(resource)
-  resource.classify.constantize
+def model_for(resource_path)
+  initialize_resource(resource_path)
 end
