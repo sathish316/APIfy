@@ -14,3 +14,15 @@ configure :production do
     css_location: 'tmp/stylesheets'
     })
 end
+
+configure do
+  Mongoid.configure do |config|
+    if ENV['MONGOLAB_URI']
+      conn = Mongo::Connection.from_uri(ENV['MONGOLAB_URI'])
+      uri = URI.parse(ENV['MONGOLAB_URI'])
+      config.master = conn.db(uri.path.gsub(/^\//, ''))
+    else
+      config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('apify')
+    end
+  end
+end

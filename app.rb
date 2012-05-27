@@ -6,15 +6,14 @@ require 'sass/plugin/rack'
 require 'scrapify'
 require 'active_support'
 require 'active_support/inflector'
+require 'mongoid'
+require './models/resource'
+# require './db/resources'
 require './config'
 require './helper'
 require './api'
 
 get '/' do
-  session[:counter] ||= 0
-  session[:counter] += 1
-  @counter = session[:counter]
-  @msg = capitalize("hello world")
   haml :index
 end
 
