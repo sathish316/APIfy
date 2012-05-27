@@ -23,6 +23,5 @@ def initialize_resources
 end
 
 def initialize_resource(api_path)
-  resource = Resource.first(conditions: {api_path: api_path})
-  eval resource.code
+  Resource.first(conditions: {api_path: api_path}).init!
 end

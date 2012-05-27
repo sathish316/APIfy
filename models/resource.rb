@@ -9,14 +9,16 @@ class Resource
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
 
-  def klass_name
-    name.camelize
+  def init!
+    eval code
   end
+
+  private
 
   def code
     options = self.dom_attributes
     <<-KLASS
-      class #{klass_name}
+      class ::#{klass_name}
         include Scrapify::Base
         html '#{html}'
 
@@ -24,6 +26,10 @@ class Resource
         #{dom_attribute_selectors.join("\n")}
       end
     KLASS
+  end
+
+  def klass_name
+    name.camelize
   end
 
   def dom_attribute_selectors
