@@ -26,3 +26,7 @@ configure do
     end
   end
 end
+
+configure do
+  initialize_resources
+end

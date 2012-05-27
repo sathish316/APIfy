@@ -8,4 +8,29 @@ class Resource
 
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
+
+  def klass_name
+    name.camelize
+  end
+
+  def code
+    options = self.dom_attributes
+    <<-KLASS
+      class #{klass_name}
+        include Scrapify::Base
+        html '#{html}'
+
+        key :#{key}
+        #{dom_attribute_selectors.join("\n")}
+      end
+    KLASS
+  end
+
+  def dom_attribute_selectors
+    attribute_declarations = dom_attributes.map do |k,v|
+      type = v['css'] ? 'css' : 'xpath'
+      selector = v[type]
+      "attribute :#{k}, #{type}: '#{selector}'"
+    end
+  end
 end
