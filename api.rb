@@ -3,13 +3,15 @@ require 'sinatra'
 get '/api/:resource.json' do
   content_type :json
   model = model_for(params[:resource])
-  model.all.to_json
+  result = model.all.to_json
+  params[:callback] ? (jsonp result) : result
 end
 
 get '/api/:resource/:id.json' do
   content_type :json
   model = model_for(params[:resource])
-  model.find(params[:id]).to_json
+  result = model.find(params[:id]).to_json
+  params[:callback] ? (jsonp result) : result
 end
 
 def model_for(resource_path)
