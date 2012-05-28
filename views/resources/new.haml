@@ -5,9 +5,9 @@
       %fieldset
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :name}
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge'}
         = partial :"resources/_api_path", template_engine: :haml
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute'}
         .control-group
           %label.control-label DOM Attributes
           .controls

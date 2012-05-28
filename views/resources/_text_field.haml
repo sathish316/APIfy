@@ -4,6 +4,6 @@
   %label{for: "#{model_name}_#{attribute}", class: 'control-label'}
     = attribute.capitalize
   .controls
-    %input{id: "#{model_name}_#{attribute}", name: "#{model_name}[#{attribute}]", value: model.send(attribute), type: 'text', class: "input-#{input_size}"}
+    %input{id: "#{model_name}_#{attribute}", name: "#{model_name}[#{attribute}]", value: model.send(attribute), type: 'text', class: "input-#{input_size}", placeholder: (placeholder rescue nil)}
     %span{class: 'help-inline'}
       = model.errors.get(attribute).try(:first)

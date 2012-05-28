@@ -1,11 +1,11 @@
 .control-group{class: ('error' if @resource.errors.get(:api_path))}
   %label{for: 'resource_api_path', class: 'control-label'} API Path
   .controls
-    %span.api_path
-      %strong
-        ="/api/"
-      %input{id: 'resource_api_path', name: 'resource[api_path]', value: @resource.api_path, type: 'text', size: 20, class: 'input-medium'}
-      %strong
-        =".json"
+    %div.api_path.input-prepend.input-append
+      %span.add-on
+        \/api/
+      %input{id: 'resource_api_path', name: 'resource[api_path]', value: @resource.api_path, type: 'text', size: 20, class: 'input-medium', placeholder: 'API URL Path. Ex: books'}
+      %span.add-on
+        ='.json'
     %span{class: 'help-inline'}
       = @resource.errors.get(:api_path).try(:first)
