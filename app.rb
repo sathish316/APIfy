@@ -16,6 +16,7 @@ require './config'
 require './helper'
 require './api'
 require './resource'
+require './tutorial'
 
 get '/' do
   redirect '/resources'
@@ -25,14 +26,7 @@ get '/application.js' do
   coffee :application
 end
 
-get '/tutorial' do
-  haml :todo
-end
-
-get '/examples' do
-  haml :todo
-end
-
 get '/about' do
-  haml :todo
+  @current_page = 'about'
+  markdown :about
 end
