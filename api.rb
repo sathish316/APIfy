@@ -3,7 +3,7 @@ require 'sinatra'
 get '/api/:resource.json' do
   content_type :json
   model = model_for(params[:resource])
-  result = model.all.to_json
+  result = model.all.map(&:attributes).to_json
   params[:callback] ? (jsonp result) : result
 end
 
