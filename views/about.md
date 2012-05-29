@@ -1,15 +1,19 @@
-## About
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://apify.heroku.com" data-text="Check out APIfy" data-hashtags="apify">Tweet</a>
+<div class='clear'></div>
 
-What if the whole web is an API waiting to be scraped? APIfy brings to life all the data that is locked up in HTML tables and Wiki pages in the form of JSON APIs. You call it semantic web? We call it scraping.   
+## About 
+
+What if the whole web is an API waiting to be scraped? APIfy brings to life all the data that is locked up in HTML tables and Wiki pages in the form of JSON APIs. You call it semantic web? APIfy calls it scraping and building an API.
 
 ### What is APIfy for?
 
 APIfy is not about large datasets like Twitter/Github APIs. APIfy is about smaller datasets like: 
 
 * IMDB Top 250 movies
-* Time Top 100 fiction
+* Time Top 100 books
 * List of all your favorite TV show episodes
-* Bus/Train routes in your city and so on.
+* Bus/Train routes in your city
+* Sports schedules
 
 Everytime you've used a list box of countries, states, timezones in HTML forms and wished someone had an API for it... 
 
@@ -34,3 +38,12 @@ APIfy is a set of community contributed APIs. To get started, check out these tu
 * [Create API](/tutorial/create)
 * [Use API](/tutorial/use)
 * [Examples](tutorial/examples)
+
+### How to contribute
+
+To contribute:
+
+* Add more APIs [here](/resources)
+* Fork [APIfy](https://github.com/sathish316/APIfy)
+* Fork [ScrApify](https://github.com/sathish316/scrapify)
+* Retweet APIfy
