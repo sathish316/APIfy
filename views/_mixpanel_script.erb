@@ -9,5 +9,5 @@
     for(e=0;e<g.length;e++)(function(a){b[a]=function(){b.push([a].concat(
     Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c}
     )(document,[]);
-    mixpanel.init(<%=ENV["MIXPANEL_TOKEN"]%>);
+    mixpanel.init('<%=ENV["MIXPANEL_TOKEN"]%>');
 </script>
