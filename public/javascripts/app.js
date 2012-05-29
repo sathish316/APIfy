@@ -22,6 +22,7 @@ $(function(){
   $('.add_attribute_btn').click(function(event){
     var row = $('.attribute_row_template').clone()
       .removeClass('attribute_row_template')
+      .removeClass('hidden')
       .addClass('attribute_row')
       .show();
     var count = $('.attribute_rows tr.attribute_row').size();
