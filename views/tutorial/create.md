@@ -1,3 +1,6 @@
+<script type="text/javascript">
+    mixpanel.track("CreateTutorial")
+</script>
 ## Tutorial
 
 ## Create API

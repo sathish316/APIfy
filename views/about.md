@@ -1,3 +1,6 @@
+<script type="text/javascript">
+    mixpanel.track("About")
+</script>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://apify.heroku.com" data-text="Check out APIfy" data-hashtags="apify">Tweet</a>
 <div class='clear'></div>
 

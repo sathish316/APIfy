@@ -1,3 +1,6 @@
+<script type="text/javascript">
+    mixpanel.track("UseTutorial")
+</script>
 ## Tutorial
 
 APIfy APIs can be used from:
