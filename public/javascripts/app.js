@@ -19,8 +19,6 @@ $(function(){
     showJson(url, '#show_json_output')
   });
 
-  $('.attribute_row_template').hide();
-
   $('.add_attribute_btn').click(function(event){
     var row = $('.attribute_row_template').clone()
       .removeClass('attribute_row_template')

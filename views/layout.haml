@@ -2,10 +2,6 @@
 %html
   %head
     %title= 'APIfy'
-    %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
-    %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
-    %script{type: 'text/javascript', src: '/application.js'}
-    %script{type: 'text/javascript', src: '/javascripts/app.js'}
     %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/bootstrap.min.css'}
     %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/bootstrap-responsive.min.css'}
     %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/styles.css'}
@@ -43,3 +39,7 @@
                     %a{href: '/suggestions'}
                       Suggest API
         = yield
+        %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
+    %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
+    %script{type: 'text/javascript', src: '/application.js'}
+    %script{type: 'text/javascript', src: '/javascripts/app.js'}
