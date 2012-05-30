@@ -2,6 +2,9 @@
   mixpanel.track("TestAPI")
 %h2
   = "API::#{@resource.name}"
+  %a.btn.btn-mini.edit_api_btn{href: "/resources/#{@resource.id}/edit"}
+    %i.icon-edit
+    Edit
 .row
   .span6
     %dl.dl-horizontal
