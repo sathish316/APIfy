@@ -2,6 +2,16 @@
   mixpanel.track("ListAPIs")
 = partial '_tweet', template_engine: :erb
 %h2 Apify APIs
+%h6
+  APIfy converts data in any site to JSON APIs.
+  %br
+  To get started check out an
+  %a{href: '/resources/4fc2a166ae684d0001000004'}
+    API
+  or
+  %a{href: '/tutorial/create'}
+    tutorial
+  to create your own APIs
 .content.span6
   .resource_listing
     - @resources.each do |resource|
