@@ -13,7 +13,7 @@ get '/tutorial/use' do
   markdown :"tutorial/use"
 end
 
-get '/tutorial/examples' do
+get '/tutorial/showcase' do
   @current_page = 'tutorial'
-  markdown :"tutorial/examples"
+  markdown :"tutorial/showcase"
 end

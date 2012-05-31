@@ -7,6 +7,14 @@ $(function(){
     });
   }
 
+  function showHelp(helpContent){
+    $('.help-sidebar').hide();
+    if(helpContent){
+      $(helpContent).show();
+    }
+  }
+  showHelp($('#help').val());
+  
   $('#test_index_api').click(function(){
     var url = $(this).attr('data-url');
     showJson(url, '#index_json_output');

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    mixpanel.track("CreateTutorial")
+    mixpanel.track("CreateTutorial");
 </script>
 ## Tutorial
 

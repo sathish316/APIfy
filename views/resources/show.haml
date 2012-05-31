@@ -1,10 +1,11 @@
 %script{type: 'text/javascript'}
-  mixpanel.track("TestAPI")
+  mixpanel.track("TestAPI");
 %h2
-  = "API::#{@resource.name}"
+  = "#{@resource.name} API"
   %a.btn.btn-mini.edit_api_btn{href: "/resources/#{@resource.id}/edit"}
     %i.icon-edit
     Edit
+%input#help{type: :hidden, value: '.help-use,.help-test'}
 .row
   .span6
     %dl.dl-horizontal

@@ -1,0 +1,30 @@
+.navbar
+  .navbar-inner
+    .container
+      %a.brand{href: '/resources'}
+        APIfy
+      .nav-collapse
+        %ul.nav
+          %li{class: ('active' if @current_page == 'resources')}
+            %a{href: '/resources'}
+              APIs
+          %li{class: ('active' if (@current_page == 'create_resource'))}
+            %a{href: '/resources/new'}
+              Create API
+          %li.dropdown{class: ('active' if @current_page == 'tutorial')}
+            %a.dropdown-toggle{'data-toggle' => 'dropdown'}
+              Tutorials
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{href: '/tutorial/create'} Create API
+              %li
+                %a{href: '/tutorial/use'} Use API
+              %li.hidden
+                %a{href: '/tutorial/showcase'} Built with APIfy
+          %li{class: ('active' if @current_page == 'about')}
+            %a{href: '/about'}
+              About
+          %li.hidden{class: ('active' if @current_page == 'suggestions')}
+            %a{href: '/suggestions'}
+              Suggest API

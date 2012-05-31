@@ -1,6 +1,7 @@
 %script{type: 'text/javascript'}
-  mixpanel.track("CreateAPI")
+  mixpanel.track("CreateAPI");
 %h2 Create API
+%input#help{type: :hidden, value: '.help-create'}
 .row
   %div
     %form{action: "/resources", method: "POST", class: "form-horizontal"}

@@ -8,39 +8,14 @@
     = partial '_mixpanel_script', template_engine: :erb
   %body
     .container-fluid
-      .span8.offset2
-        .navbar
-          .navbar-inner
-            .container
-              %a.brand{href: '/resources'}
-                APIfy
-              .nav-collapse
-                %ul.nav
-                  %li{class: ('active' if @current_page == 'resources')}
-                    %a{href: '/resources'}
-                      APIs
-                  %li{class: ('active' if (@current_page == 'create_resource'))}
-                    %a{href: '/resources/new'}
-                      Create API
-                  %li.dropdown{class: ('active' if @current_page == 'tutorial')}
-                    %a.dropdown-toggle{'data-toggle' => 'dropdown'}
-                      Tutorials
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{href: '/tutorial/create'} Create API
-                      %li
-                        %a{href: '/tutorial/use'} Use API
-                      %li
-                        %a{href: '/tutorial/examples'} Examples
-                  %li{class: ('active' if @current_page == 'about')}
-                    %a{href: '/about'}
-                      About
-                  %li.hidden{class: ('active' if @current_page == 'suggestions')}
-                    %a{href: '/suggestions'}
-                      Suggest API
-        = yield
-        %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
+      .span12
+        = partial '_navbar', template_engine: :haml
+        .row
+          .span8
+            = yield
+          .span3
+            = partial '_help', template_engine: :haml
+    %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
     %script{type: 'text/javascript', src: '/application.js'}
     %script{type: 'text/javascript', src: '/javascripts/app.js'}

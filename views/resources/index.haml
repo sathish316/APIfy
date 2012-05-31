@@ -1,7 +1,8 @@
 %script{type: 'text/javascript'}
-  mixpanel.track("ListAPIs")
+  mixpanel.track("ListAPIs");
 = partial '_tweet', template_engine: :erb
 %h2 Apify APIs
+%input#help{type: :hidden, value: '.help-intro'}
 %h6
   APIfy converts data in any site to JSON APIs.
   %br
