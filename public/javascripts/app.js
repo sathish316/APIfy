@@ -61,5 +61,16 @@ $(function(){
         $('.open-xpath-cheatsheet').trigger('click');
       }
     }
-  })
+  });
+
+  var spinner;
+  $.ajaxSetup({
+    beforeSend: function() {
+      spinner =  new Spinner().spin(document.getElementById('app-content'));
+    },
+    complete: function(){
+      spinner.stop();
+    }
+  });
+
 })  
