@@ -14,10 +14,15 @@
         %dd
           = @resource.description || @resource.name
       .section
+        %dt HTML URL
+        %dd
+          = @resource.html
+      .section
         %dt Index API
         %dd
           .api_url
-            = "/api/#{@resource.api_path}.json"
+            %a{href: "/api/#{@resource.api_path}.json", target: '_blank'}
+              \/api/#{@resource.api_path}.json
           .well#index_json_output
             Test API JSON output here
           .api_test

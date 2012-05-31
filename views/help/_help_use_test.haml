@@ -1,6 +1,55 @@
 .help-sidebar.help-use
   %h3
-    How to use an API?
+    How to use this API?
+  %br
+  This API can be used from:
+  %ol
+    %li
+      %a{href: '/tutorial/use#ruby'}
+        Ruby
+      , Python, PHP webapps
+    %li iPhone / Android mobile apps
+    %li
+      %a{href: '/tutorial/use#javascript'}
+        Javascript
+      and Phonegap apps using JSONP
+
+  See
+  %a{href: '/tutorial/use'}
+    usage examples
+  for more details
 .help-sidebar.help-test
   %h3
-    How to test an API?
+    How to test this API?
+  %p
+    Click
+    %a.btn.btn-mini.btn-info{href: '#'}
+      Test API
+    to directly test API from APIfy.
+  %ol
+    %li
+      Use Index API to get all records
+      %br
+      %em
+        Ex:
+      %strong
+        http://apify.heroku.com/api/imdb_top250_movies.json
+      %br
+      &nbsp;
+    %li
+      Use Show API to get one record using unique attribute
+      %br
+      %em
+        Ex:
+      %strong
+        http://apify.heroku.com/api/imdb_top250_movies/4.json
+      %br
+      &nbsp;
+    %li
+      JSON output will appear like this:
+      .well
+        = '{rank: 4, title: "Pulp Fiction", rating: 9.2}'
+    %li
+      API can also be tested using curl or 
+      %a{href: 'https://addons.mozilla.org/en-US/firefox/addon/restclient/'}
+        RESTClient

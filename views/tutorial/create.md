@@ -25,9 +25,14 @@ You "*just gotta break out emacs and modify the perl script*" to fetch all episo
 
     <br/>
 
-3. Use any Insepct tool to get CSS or XPATH selector for each attribute you want in your API.
+3. Use any Inspect tool to get CSS or XPATH selector for each attribute you want in your API.
     
-    Don't worry if you haven't used CSS or XPATH selectors before. W3Schools' one page reference on [CSS Selectors](http://www.w3schools.com/cssref/css_selectors.asp) and [XPATH Selectors](http://www.w3schools.com/xpath/xpath_syntax.asp) is all you need
+    Don't worry if you haven't used CSS or XPATH selectors before. W3Schools' [CSS Selectors](http://www.w3schools.com/cssref/css_selectors.asp) and [XPATH Selectors](http://www.w3schools.com/xpath/xpath_syntax.asp) is all you need
+
+    APIfy has CSS and XPATH cheatsheets:
+
+    - Press 'c' to access CSS cheatsheet
+    - Press 'x' to access XPATH cheatsheet
 
     To select episode number and title:
 

@@ -5,15 +5,25 @@
   %a.btn.btn-mini.btn-info.edit_api_btn{href: "/resources/#{@resource.id}"}
     %i.icon-ok
     Test
-%input#help{type: :hidden, value: '.help-modify'}
+%input#help{type: :hidden, value: '.help-modify,.help-css,.help-xpath'}
 .row
   %div
     %form{action: "/resources/#{@resource.id}", method: "POST", class: "form-horizontal"}
       %fieldset
         %input{type: 'hidden', name: '_method', value: 'PUT'}
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, label: "HTML URL"}
-        = partial :"resources/_api_path", template_engine: :haml
+        .control-group
+          %label.control-label HTML URL
+          .controls
+            %span.api_path
+              %a{href: @resource.html, target: '_blank'}
+                = @resource.html
+        .control-group
+          %label.control-label API Path
+          .controls
+            %span.api_path
+              %a{href: "/api/#{@resource.api_path}.json", target: '_blank'}
+                \/api/#{@resource.api_path}.json
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, label: 'Unique attribute'}
         .control-group
           %label.control-label DOM Attributes

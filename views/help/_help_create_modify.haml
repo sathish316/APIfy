@@ -48,6 +48,37 @@
       is the unique attribute in
       %em
         \/api/imdb_top_250_movies/:rank.json
+.help-sidebar.help-modify
+  %h3
+    Modify API
+  %ol
+    %li
+      HTML URL is the html page from which data is extracted
+      %br
+      &nbsp;
+    %li
+      API Path is the APIfy URL for the API
+      %br
+      &nbsp;
+    %li
+      Add/Edit attributes if you think something is broken. 
+      %br
+      Attributes are selected using
+      %a{href: "http://www.w3schools.com/cssref/css_selectors.asp", target: '_blank'}CSS selector
+      or
+      %a{href: "http://www.w3schools.com/xpath/xpath_syntax.asp", target: '_blank'}XPATH selector
+      %br
+      &nbsp;
+    %li
+      Unique Attribute is used to identify records
+      %br
+      %em
+        Ex:
+      %strong
+        rank
+      is the unique attribute in
+      %em
+        \/api/imdb_top_250_movies/:rank.json
 .help-sidebar.help-css
   %h3
     CSS Selectors
@@ -55,9 +86,7 @@
     Go to
     %a{href: "http://www.w3schools.com/cssref/css_selectors.asp", target: '_blank'}
       W3Schools reference
-  %a.btn.btn.open-css-cheatsheet{href: "/cheatsheets/css", 'data-toggle' => "modal", 'data-target' => "#css-modal"}
-    %i.icon-info-sign
-    CSS Cheatsheet
+  = partial 'cheatsheets/_open_css_cheatsheet'
 .help-sidebar.help-xpath
   %h3
     XPATH Selectors
@@ -65,9 +94,4 @@
     Go to
     %a{href: "http://www.w3schools.com/xpath/xpath_syntax.asp", target: '_blank'}
       W3Schools reference
-  %a.btn.btn.open-xpath-cheatsheet{href: "/cheatsheets/xpath", 'data-toggle' => "modal", 'data-target' => "#xpath-modal"}
-    %i.icon-info-sign
-    XPATH Cheatsheet
-.help-sidebar.help-modify
-  %h3
-    Modify API
+  = partial 'cheatsheets/_open_xpath_cheatsheet'

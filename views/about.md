@@ -40,13 +40,11 @@ APIfy is a set of community contributed APIs. To get started, check out these tu
 
 * [Create API](/tutorial/create)
 * [Use API](/tutorial/use)
-* [Examples](tutorial/examples)
 
 ### How to contribute
 
-To contribute:
+APIfy aims to be the wikipedia of publicly available small data APIs. To contribute:
 
 * Add more APIs [here](/resources)
-* Fork [APIfy](https://github.com/sathish316/APIfy)
-* Fork [ScrApify](https://github.com/sathish316/scrapify)
-* Retweet APIfy
+* Build apps using APIfy APIs. Check out [examples](/tutorial/use)
+* Retweet and Share
