@@ -12,9 +12,9 @@
       %fieldset
         %input{type: 'hidden', name: '_method', value: 'PUT'}
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, label: "HTML URL"}
         = partial :"resources/_api_path", template_engine: :haml
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, label: 'Unique attribute'}
         .control-group
           %label.control-label DOM Attributes
           .controls

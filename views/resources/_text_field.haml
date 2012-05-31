@@ -1,8 +1,9 @@
 - model_name = model.class.name.underscore
 - input_size = defined?(size) ? size : 'medium'
+- input_label = defined?(label) ? label : attribute.capitalize
 .control-group{class: ('error' if model.errors.get(attribute))}
   %label{for: "#{model_name}_#{attribute}", class: 'control-label'}
-    = attribute.capitalize
+    = input_label
   .controls
     %input{id: "#{model_name}_#{attribute}", name: "#{model_name}[#{attribute}]", value: model.send(attribute), type: 'text', class: "input-#{input_size}", placeholder: (placeholder rescue nil)}
     %span{class: 'help-inline'}

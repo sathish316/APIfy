@@ -1,0 +1,73 @@
+.help-sidebar.help-create
+  %h3
+    How to create an API?
+  %ol
+    %li
+      Name your API
+      %br
+      %em
+        Ex:
+      IMDBMovie
+      %br
+      &nbsp;
+    %li
+      Enter URL to extract data
+      %br
+      %em
+        Ex:
+      %a{href: "http://www.imdb.com/chart/top", target: '_blank'} http://www.imdb.com/chart/top
+      %br
+      &nbsp;
+    %li
+      Enter APIfy path for JSON API
+      %br
+      %em
+        Ex:
+      %strong
+        imdb_top250_movies
+      %br
+      &nbsp;
+    %li
+      Click
+      %a.btn.btn-mini{href: '#'}
+        %i.icon-plus
+      to add attributes. Enter 
+      %a{href: "http://www.w3schools.com/cssref/css_selectors.asp", target: '_blank'}CSS selector
+      or
+      %a{href: "http://www.w3schools.com/xpath/xpath_syntax.asp", target: '_blank'}XPATH selector
+      for each attribute
+      %br
+      &nbsp;
+    %li
+      Enter Unique Attribute to get each record
+      %br
+      %em
+        Ex:
+      %strong
+        rank
+      is the unique attribute in
+      %em
+        \/api/imdb_top_250_movies/:rank.json
+.help-sidebar.help-css
+  %h3
+    CSS Selectors
+  %p
+    Go to
+    %a{href: "http://www.w3schools.com/cssref/css_selectors.asp", target: '_blank'}
+      W3Schools reference
+  %a.btn.btn.open-css-cheatsheet{href: "/cheatsheets/css", 'data-toggle' => "modal", 'data-target' => "#css-modal"}
+    %i.icon-info-sign
+    CSS Cheatsheet
+.help-sidebar.help-xpath
+  %h3
+    XPATH Selectors
+  %p
+    Go to
+    %a{href: "http://www.w3schools.com/xpath/xpath_syntax.asp", target: '_blank'}
+      W3Schools reference
+  %a.btn.btn.open-xpath-cheatsheet{href: "/cheatsheets/xpath", 'data-toggle' => "modal", 'data-target' => "#xpath-modal"}
+    %i.icon-info-sign
+    XPATH Cheatsheet
+.help-sidebar.help-modify
+  %h3
+    Modify API

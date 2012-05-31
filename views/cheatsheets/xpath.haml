@@ -1,0 +1,108 @@
+.modal-header
+  %button.close{'data-dismiss' => "modal"}
+    x
+  %h3
+    XPATH Selectors
+.modal-body
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th
+          Selector
+        %th
+          Example
+        %th
+          Description
+    %tbody
+      %tr
+        %td
+          element
+        %td
+          div
+        %td
+          Select all
+          :escaped
+            <div>
+          elements
+      %tr
+        %td
+          \/element
+        %td
+          \/div
+        %td
+          Select all
+          :escaped
+            <div>
+          elements starting from the root node
+      %tr
+        %td
+          \//element
+        %td
+          \//div
+        %td
+          Select all
+          :escaped
+            <div>
+          elements anywhere in the DOM
+      %tr
+        %td
+          attributes
+        %td
+          \//img@alt
+        %td
+          Select all alt attributes of
+          :escaped
+            <img>
+      %tr
+        %td
+          element with attribute
+        %td
+          \//dt[data-type='book-title']
+        %td
+          Select all
+          :escaped
+            <dt>
+          having data-type='book-title' attribute
+      %tr
+        %td
+          \//parent/element[n]
+        %td
+          \//tr[class=book-row]/td[3]
+        %td
+          Select every 3rd
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row. Ex: ISBN could be the 3rd column in books table
+      %tr
+        %td
+          \//parent/element[1]
+        %td
+          \//tr[class=book-row]/td[1]
+        %td
+          Select every first
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row.
+      %tr
+        %td
+          \//parent/element[last()]
+        %td
+          \//tr[class=book-row]/td[last()]
+        %td
+          Select every last
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row.
+
+.modal-footer
+  %a.btn{'data-dismiss' => "modal", href: "#"}
+    Close

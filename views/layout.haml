@@ -9,12 +9,16 @@
   %body
     .container-fluid
       .span12
-        = partial '_navbar', template_engine: :haml
+        = partial '_navbar'
         .row
           .span8
             = yield
           .span3
-            = partial '_help', template_engine: :haml
+            = partial 'help/_help'
+    .modal.fade#css-modal
+      = partial 'cheatsheets/css'
+    .modal.fade#xpath-modal
+      = partial 'cheatsheets/xpath'
     %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
     %script{type: 'text/javascript', src: '/application.js'}

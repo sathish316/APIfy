@@ -1,0 +1,115 @@
+.modal-header
+  %button.close{'data-dismiss' => "modal"}
+    x
+  %h3
+    CSS Selectors
+.modal-body
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th
+          Selector
+        %th
+          Example
+        %th
+          Description
+    %tbody
+      %tr
+        %td
+          \.class
+        %td
+          \.foo
+        %td
+          Elements with class=foo
+      %tr
+        %td
+          \#id
+        %td
+          \#foo
+        %td
+          Element with id=foo
+      %tr
+        %td
+          element
+        %td
+          div
+        %td
+          Select all
+          :escaped
+            <div>
+          elements
+      %tr
+        %td
+          parent child
+        %td
+          table.books td
+        %td
+          Select all
+          :escaped
+            <td>
+          inside table having class=books
+      %tr
+        %td
+          parent > child
+        %td
+          tr.book-row td
+        %td
+          Select all
+          :escaped
+            <td>
+          directly below
+          :escaped
+            <tr>
+          having class=book-row
+      %tr
+        %td
+          element with attribute
+        %td
+          dt[data-type='book-title']
+        %td
+          Select all
+          :escaped
+            <dt>
+          having data-type='book-title' attribute
+      %tr
+        %td
+          parent element:nth-child(n)
+        %td
+          tr.book-row td:nth-child(3)
+        %td
+          Select every 3rd
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row. Ex: ISBN could be the 3rd column in books table
+      %tr
+        %td
+          parent element:first-child
+        %td
+          tr.book-row td:first-child
+        %td
+          Select every first
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row.
+      %tr
+        %td
+          parent element:last-child
+        %td
+          tr.book-row td:last-child
+        %td
+          Select every last
+          :escaped
+            <td>
+          inside
+          :escaped
+            <tr>
+          having class=book-row.
+.modal-footer
+  %a.btn{'data-dismiss' => "modal", href: "#"}
+    Close

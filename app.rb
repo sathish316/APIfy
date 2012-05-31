@@ -17,6 +17,7 @@ require './helper'
 require './api'
 require './resource'
 require './tutorial'
+require './cheatsheet'
 
 get '/' do
   redirect '/resources'

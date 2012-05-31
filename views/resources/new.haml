@@ -1,17 +1,18 @@
 %script{type: 'text/javascript'}
   mixpanel.track("CreateAPI");
 %h2 Create API
-%input#help{type: :hidden, value: '.help-create'}
+%input#help{type: :hidden, value: '.help-create,.help-css,.help-xpath'}
 .row
   %div
     %form{action: "/resources", method: "POST", class: "form-horizontal"}
       %fieldset
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :name}
         = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge'}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge', label: 'HTML URL'}
         = partial :"resources/_api_path", template_engine: :haml
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute'}
+        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute', label: 'Unique Attribute'}
         .control-group
+        
           %label.control-label DOM Attributes
           .controls
             %table.table.table-striped

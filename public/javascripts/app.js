@@ -45,4 +45,21 @@ $(function(){
     $(this).closest('tr').remove();
     event.preventDefault();
   });
+
+  // $('a[data-toggle=modal]').click(function(){
+  //   var target = $(this).attr('data-target');
+  //   var url = $(this).attr('href');
+  //   $(target).load(url);
+  // });
+
+  $(document).keydown(function(event){
+    if(!$(document.activeElement).is('input')){
+      var keyCode = event.which;
+      if(keyCode == "c".charCodeAt(0) || keyCode == "C".charCodeAt(0)){
+        $('.open-css-cheatsheet').trigger('click');
+      } else if(keyCode == "x".charCodeAt(0) || keyCode == "X".charCodeAt(0)){
+        $('.open-xpath-cheatsheet').trigger('click');
+      }
+    }
+  })
 })  
