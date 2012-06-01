@@ -4,39 +4,42 @@
   %br
   .help-content
     %p
-      APIfy converts data in existing html sites and wikipedia pages to JSON APIs.
+      APIfy converts data in existing HTML sites and wikipedia pages to JSON APIs.
+    %br
     %p
       APIs can be consumed from
       %a{href: '/tutorial/use#ruby'}
         Ruby
       Python, PHP, Node.js, iPhone, Android apps. 
     %p
-      If you don't have a backend, APIs can be consumed directly from
-      from
       %a{href: '/tutorial/use#javascript'}
         Javascript
-      and Phonegap apps using
+      and Phonegap apps can use
       %a{href: '/tutorial/use#javascript'}
         JSONP
-    %h3
-      Getting started
-    %br
+      to consume API without a backend.
+.help-sidebar.help-getting-started
+  %h3
+    Getting started
+  %br
+  .help-content
     %p
-      Copy json url to use existing API 
+      Right click and copy json url to
+      %a{href: '/tutorial/use'}
+        use API
       %br
       %em
         %a{href: "http://apify.heroku.com/api/_imdb_top250_movies.json"}
-          http://apify.heroku.com/api/_imdb_top250_movies.json
+          \/api/_imdb_top250_movies.json
+    %br
     %p
       Click
       %a.btn.btn-mini.btn-info{href: "#"}
         %i.icon-ok
         Test
       to view json output
-    %p
-      To create your own APIs, go to 
-      %a{href: '/resources/new'}
-        Create API 
-      or check out the
-      %a{href: '/tutorial/create'}
-        tutorial.
+    %br
+    %a.btn.btn{href: "/tutorial/create"}
+      %i.icon-book
+      View Tutorial
+    to Create API

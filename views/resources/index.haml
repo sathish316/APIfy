@@ -4,18 +4,15 @@
 .row
   .apify_overview
     %img{src: '/img/apify.png'}
-%h2 Apify APIs
-%input#help{type: :hidden, value: '.help-intro'}
-%h6
-  APIfy converts data in any site to JSON APIs.
-  %br
-  To get started check out an
-  %a{href: '/resources/4fc2a166ae684d0001000004'}
-    API
-  or
-  %a{href: '/tutorial/create'}
-    tutorial
-  to create your own APIs
+.span6
+  %h2
+    Apify APIs
+    .home-buttons.right
+      %a.home-create-button{href: '/resources/new'}
+        %span
+          Create JSON API
+    .clear
+%input#help{type: :hidden, value: '.help-intro,.help-getting-started'}
 .content.span6
   .resource_listing
     - @resources.each do |resource|

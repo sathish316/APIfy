@@ -59,7 +59,26 @@
   margin: 10px;
   padding: 10px;
 }
-
 .apify_overview img{
   padding-left: 40px;
+}
+a.home-create-button {
+  display: -moz-inline-stack;
+  display: inline-block;
+  width: 173px;
+  height: 38px;
+  background: url("http://dabuttonfactory.com/b.png?t=Create%20JSON%20API&f=Calibri&ts=20&tc=ffffff00&tshs=1&tshc=22222200&it=png&c=9&bgt=gradient&bgc=47c&ebgc=238&shs=1&shc=222&sho=nw&hp=20&vp=12") no-repeat;
+  line-height: 38px;
+  vertical-align: text-middle;
+  text-align: center;
+  color: #ffffff;
+  font-family: Calibri;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-shadow: #222222 1px 1px 0;
+  text-decoration: none;
+}
+a.home-create-button > span {
+  display: -moz-inline-block;
 }
