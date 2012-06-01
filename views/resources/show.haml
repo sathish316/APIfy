@@ -24,7 +24,7 @@
           .api_url
             %a{href: "/api/#{@resource.api_path}.json", target: '_blank'}
               \/api/#{@resource.api_path}.json
-          .well#index_json_output
+          %pre#index_json_output
             Test API JSON output here
           .api_test
             %button.btn.btn-info#test_index_api{"data-url" => "/api/#{@resource.api_path}.json"} Test API
@@ -36,7 +36,7 @@
               = "/api/#{@resource.api_path}/"
               %input.input-small#show_api_id
               = ".json"
-          .well#show_json_output
+          %pre#show_json_output
             Test API JSON output here
           .api_test
             %button.btn.btn-info#test_show_api{"data-url" => "/api/#{@resource.api_path}/:id.json"} Test API

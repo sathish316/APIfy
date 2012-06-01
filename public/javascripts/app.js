@@ -18,7 +18,7 @@ $(function(){
 
   function showJson(url, element){
     $.get(url).success(function(data){
-      $(element).text(JSON.stringify(data));
+      $(element).html(JSON.stringify(data, undefined, 2));
     }).error(function(xhr, status, error){
       $(element).text('API call failed: ' + error);
     });
