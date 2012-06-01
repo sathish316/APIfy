@@ -23,7 +23,7 @@ class Resource
   def all
     unless self.data
       logger.info "Parsing html: #{html}"
-      self.data = scrapify_klass.all.map(&:attributes)
+      self.data = scrapify_klass.all.map {|record| record.attributes.stringify_keys}
       save
     end
     self.data
