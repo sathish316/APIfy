@@ -89,5 +89,5 @@ $(function(){
       spinner.stop();
     }
   });
-
+  prettyPrint();
 })  
