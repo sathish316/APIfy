@@ -5,7 +5,7 @@ before do
 end
 
 get '/resources' do
-  @resources = Resource.all
+  @resources = Resource.all.asc(:name)
   haml :"resources/index"
 end
 

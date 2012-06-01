@@ -14,8 +14,6 @@ class Resource
 
   before_update :reset_data
 
-  index({api_path: 1}, { unique: true, name: "api_path_index" })
-
   def init!
     eval code
   end
