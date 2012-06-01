@@ -47,6 +47,7 @@ end
 
 def extract_attributes(resource_params)
   dom_attributes = resource_params[:dom_attributes]
+  return unless dom_attributes
   names = dom_attributes[:name]
   selectors = dom_attributes[:selector]
   selector_types = dom_attributes[:selector_type]

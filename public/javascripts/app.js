@@ -57,8 +57,6 @@ $(function(){
   });
 
   $('.remove_attribute_btn').live('click', function(event){
-    console.log('here');
-    console.log(this);
     $(this).closest('tr').remove();
     event.preventDefault();
   });
@@ -70,6 +68,8 @@ $(function(){
   // });
 
   $(document).keydown(function(event){
+    if(event.ctrlKey || event.metaKey)
+      return;
     if(!$(document.activeElement).is('input')){
       var keyCode = event.which;
       if(keyCode == "c".charCodeAt(0) || keyCode == "C".charCodeAt(0)){

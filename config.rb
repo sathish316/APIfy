@@ -30,3 +30,11 @@ end
 configure do
   initialize_resources
 end
+
+not_found do
+  haml :'404'
+end
+
+error 500..510 do
+  haml :'500'
+end

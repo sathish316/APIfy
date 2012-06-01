@@ -1,19 +1,30 @@
 require 'sinatra'
 
 get '/api/:resource.json' do
-  content_type :json
-  model = model_for(params[:resource])
-  result = model.all.map(&:attributes).to_json
-  params[:callback] ? (jsonp result) : result
+  jsonp_or_json find_resource.all.to_json
 end
 
 get '/api/:resource/:id.json' do
-  content_type :json
-  model = model_for(params[:resource])
-  result = model.find(params[:id]).to_json
-  params[:callback] ? (jsonp result) : result
+  jsonp_or_json find_record.to_json
 end
 
-def model_for(resource_path)
-  initialize_resource(resource_path)
+def find_resource
+  resource = Resource.first(conditions: {api_path: params[:resource]})
+  raise Sinatra::NotFound unless resource
+  resource
+end
+
+def find_record
+  record = find_resource.find(params[:id])
+  raise Sinatra::NotFound unless record
+  record
+end
+
+def jsonp_or_json(result)
+  params[:callback] ? (jsonp result) : (json result)
+end
+
+def json(result)
+  content_type :json
+  result
 end

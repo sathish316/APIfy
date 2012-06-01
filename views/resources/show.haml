@@ -16,7 +16,8 @@
       .section
         %dt HTML URL
         %dd
-          = @resource.html
+          %a{href: @resource.html, target: '_blank'}
+            = @resource.html
       .section
         %dt Index API
         %dd
