@@ -15,7 +15,7 @@ APIfy APIs can be used from:
 
 ### <a id='ruby'></a>Use API from Ruby/Rails
 
-APIfy APIs can be consumed using [ActiveResource](http://apidock.com/rails/ActiveResource/Base)
+APIfy API can be consumed using [ActiveResource](http://apidock.com/rails/ActiveResource/Base)
 
 APIfy json does not include root. Make sure you have the following in your config:
 
@@ -24,6 +24,8 @@ APIfy json does not include root. Make sure you have the following in your confi
 ActiveResource::Base.include_root_in_json = false
   </code>
 </pre>
+
+Add this to app/models. Model name must be the singular name of the API path.
 
 <pre class='prettyprint'>
   <code>
@@ -47,11 +49,18 @@ class EpisodesController < ApplicationController
 end
 </pre>
 
-Complete example is [here]()
-
 ### <a id='javascript'></a>Use API from Javascript using JSONP
 
-TODO
+APIfy APIs can be consumed directly from Javascript using JSONP:
+
+To make a JSONP call, use jQuery's getJSON method and append **callback=?** to API URL
+
+<pre class='prettyprint'>
+var url = "http://apify.heroku.com/api/big_bang_theory_episodes.json?callback=?"
+$.getJSON(url, function(data){
+  console.log(JSON.parse(data))
+});
+</pre>
 
 ### Use API from Python
 
