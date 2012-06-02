@@ -5,17 +5,17 @@
 
 ## Create API
 
-You're making an app to track all your favorite [Big Bang Theory](http://www.imdb.com/title/tt0898266/) TV show episodes. Except you don't have an API to get all the episodes.  
+You're making an app to track all your favorite <a href="http://www.imdb.com/title/tt0898266/" target="_blank">Big Bang Theory</a> TV show episodes. Except you don't have an API to get all the episodes.  
 
-You check out [IMDB](http://www.imdb.com/title/tt0898266/episodes). But IMDB doesn't have an API :(
+You check out <a href="http://www.imdb.com/title/tt0898266/episodes" target="_blank">IMDB</a>. But IMDB doesn't have an API :(
 
-[Wikipedia](http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes) has a list of episodes for all 5 seasons :)
+<a href="http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes" target="_blank">Wikipedia</a> has a list of episodes for all 5 seasons :)
 
 You "*just gotta break out emacs and modify the perl script*" to fetch all episodes and dump it in database. Or you can just [create](/resources/new) an API in APIfy.
 
 1. Open wiki page in Firefox or Chrome.
   
-    [http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes](http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes)
+    <a href="http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes" target="_blank">http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes</a>
 
 2. Right click on any episode and click Inspect
     
@@ -41,11 +41,11 @@ You "*just gotta break out emacs and modify the perl script*" to fetch all episo
 
     <br/>
 
-4. Go to [Create API](/resources/new) in APIfy. Enter Html Url, API Path, Unique key and attributes
+4. Go to [Create API](/resources/new) in APIfy. Enter HTML URL, API Path and attributes with CSS/XPATH selectors
 
     ![Inspect](/img/tutorial_create_api.png)
 
-    Each record in API must have a unique **key** like episode number
+    Choose Unique Attribute. Each record in API must have a **Unique attribute** like episode number
 
     <br/>
 

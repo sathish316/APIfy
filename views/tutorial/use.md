@@ -15,17 +15,12 @@ APIfy APIs can be used from:
 
 ### <a id='ruby'></a>Use API from Ruby/Rails
 
-APIfy API can be consumed using [ActiveResource](http://apidock.com/rails/ActiveResource/Base)
+API can be consumed using [ActiveResource](http://apidock.com/rails/ActiveResource/Base)
 
-APIfy json does not include root. Make sure you have the following in your config:
+Add ActiveResource model in app/models. 
 
-<pre class='prettyprint'>
-  <code>
-ActiveResource::Base.include_root_in_json = false
-  </code>
-</pre>
-
-Add this to app/models. Model name must be the singular name of the API path.
+Model name must be the singular name of the API path.
+If it does not match, use self.prefix to override path.
 
 <pre class='prettyprint'>
   <code>
@@ -36,7 +31,7 @@ end
   </code>
 </pre>
 
-Resource can be used from controllers:
+This model can be used from controllers to fetch all records or fetch one record by id:
 <pre class='prettyprint'>
 class EpisodesController < ApplicationController
   def index
@@ -49,9 +44,17 @@ class EpisodesController < ApplicationController
 end
 </pre>
 
+APIfy json does not include root. Make sure you have the following in your config:
+
+<pre class='prettyprint'>
+  <code>
+ActiveResource::Base.include_root_in_json = false
+  </code>
+</pre>
+
 ### <a id='javascript'></a>Use API from Javascript using JSONP
 
-APIfy APIs can be consumed directly from Javascript using JSONP:
+API can be consumed directly from Javascript / HTML using JSONP:
 
 To make a JSONP call, use jQuery's getJSON method and append **callback=?** to API URL
 

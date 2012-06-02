@@ -1,7 +1,12 @@
 %script{type: 'text/javascript'}
   mixpanel.track("CreateAPI");
-%h2 Create API
+%h2 
+  Create API
+  %a.btn.right{href: "/tutorial/create"}
+    %i.icon-book
+    View Tutorial
 %input#help{type: :hidden, value: '.help-create,.help-css,.help-xpath'}
+%br
 .row
   %div
     %form{action: "/resources", method: "POST", class: "form-horizontal"}
@@ -27,4 +32,7 @@
               %tbody.attribute_rows
         .actions
           %input.btn.btn-primary{type: 'Submit', value: 'Create API'}
+          %a.btn{href: '/resources'}
+            %i.icon-circle-arrow-left
+            Back to API Listing
     = partial :"resources/_attribute_row_template"
