@@ -44,7 +44,7 @@ APIfy is a set of community contributed APIs. To get started, check out these tu
 
 ### Terms of Use
 
-APIfy or it's creators are not responsible for any user generated content.
+APIfy and it's creators are not responsible for any user generated content.
 
 Wikipedia, Blogs and Public service sites which don't have an API are OK.
 For any other site read the Terms of Use carefully before using it. 
