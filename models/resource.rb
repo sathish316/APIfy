@@ -39,9 +39,16 @@ class Resource
   def expired?
     expired = false
     if expire_content
-      self.expire_at ||= 1.hour.from_now
+      unless self.expire_at
+        # first time
+        self.expire_at = 1.hour.from_now
+        save
+      end
       expired = Time.now >= self.expire_at
-      self.expire_at = 1.hour.from_now if expired
+      if expired
+        self.expire_at = 1.hour.from_now
+        save
+      end
     end
     expired
   end
