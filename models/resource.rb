@@ -59,7 +59,7 @@ class Resource
     attribute_declarations = dom_attributes.map do |k,v|
       type = v['css'] ? 'css' : 'xpath'
       selector = v[type]
-      "attribute :#{k}, #{type}: '#{selector}'"
+      "attribute :#{k}, #{type}: \"#{selector}\""
     end
   end
 
