@@ -49,9 +49,12 @@
                     %td
                       %input.input-medium{name: "resource[dom_attributes][selector][#{count}]", type: 'text', value: (selector['css'] || selector['xpath'])}
                     %td
-                      %select.span2{name: "resource[dom_attributes][selector_type][#{count}]", value: (selector['css'] ? 'css' : 'xpath')}
-                        %option css
-                        %option xpath
+                      - selector_type = (selector['css'] ? 'css' : 'xpath')
+                      %select.span2{name: "resource[dom_attributes][selector_type][#{count}]", value: selector_type}
+                        %option{selected: ('selected' if selector_type == 'css')}
+                          css
+                        %option{selected: ('selected' if selector_type == 'xpath')}
+                          xpath
                   - count += 1
 
         .actions
