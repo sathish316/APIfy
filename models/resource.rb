@@ -13,6 +13,7 @@ class Resource
   validates_format_of :name, with: /^[a-zA-Z0-9_]+$/
 
   before_update :reset_data
+  before_save :default_attributes
 
   def init!
     eval code
@@ -64,5 +65,9 @@ class Resource
 
   def reset_data
     self.data = nil if html_changed? or dom_attributes_changed? or key_changed?
+  end
+
+  def default_attributes
+    self.dom_attributes ||= {}
   end
 end
