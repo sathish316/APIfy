@@ -7,8 +7,8 @@ class Resource
   field :key, type: String
   field :dom_attributes, type: Hash
   field :data, type: Array
-  field :expire_content, type: Boolean
-  field :expire_at, type: DateTime
+  field :expire_data, type: Boolean
+  field :expire_data_at, type: DateTime
 
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
@@ -38,15 +38,15 @@ class Resource
 
   def expired?
     expired = false
-    if expire_content
-      unless self.expire_at
+    if expire_data
+      unless self.expire_data_at
         # first time
-        self.expire_at = 1.hour.from_now
+        self.expire_data_at = 1.hour.from_now
         save
       end
-      expired = Time.now >= self.expire_at
+      expired = Time.now >= self.expire_data_at
       if expired
-        self.expire_at = 1.hour.from_now
+        self.expire_data_at = 1.hour.from_now
         save
       end
     end
