@@ -12,12 +12,12 @@
       .section
         %dt Description
         %dd
-          = @resource.description || @resource.name
+          &= @resource.description || @resource.name
       .section
         %dt HTML URL
         %dd
           %a{href: @resource.html, target: '_blank'}
-            = @resource.html
+            &= @resource.html
       .section
         %dt Index API
         %dd

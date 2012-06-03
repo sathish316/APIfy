@@ -11,4 +11,4 @@
       %span{class: 'help-inline'}
         = model.errors.get(attribute).try(:first)
     - else
-      = model.send(attribute)
+      &= model.send(attribute)

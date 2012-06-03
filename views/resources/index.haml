@@ -19,7 +19,7 @@
       .resource_row
         %h4
           %a{href: "/resources/#{resource.id}"}
-            = resource.name
+            &= resource.name
           %span.resource_actions
             %a.btn.btn-mini.edit_api_btn{href: "/resources/#{resource.id}/edit"}
               %i.icon-edit
@@ -31,9 +31,9 @@
         %dl.dl-horizontal
           %dt Description
           %dd
-            = resource.description || "-"
+            &= resource.description || "-"
           %dt API
           %dd
             - url = "/api/#{resource.api_path}.json"
             %a{href: url}
-              = url
+              &= url
