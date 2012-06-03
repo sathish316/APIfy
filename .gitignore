@@ -4,4 +4,4 @@ todo_examples
 public/stylesheets/*.css
 TODO.md
 backup.rb
-backup.txt
+backup*.txt
