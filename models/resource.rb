@@ -66,6 +66,7 @@ class Resource
         html '#{html}'
 
         key :#{key}
+        self.attribute_names = []
         #{dom_attribute_selectors.join("\n")}
       end
     KLASS
