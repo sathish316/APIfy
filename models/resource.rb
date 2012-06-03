@@ -9,6 +9,7 @@ class Resource
   field :data, type: Array
   field :expire_data, type: Boolean
   field :expire_data_at, type: DateTime
+  field :locked, type: Boolean
 
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
