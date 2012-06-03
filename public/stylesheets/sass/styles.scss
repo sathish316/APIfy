@@ -82,3 +82,15 @@ a.home-create-button {
 a.home-create-button > span {
   display: -moz-inline-block;
 }
+.locked {
+  background-image: url('../img/locked.png');
+  background-repeat: no-repeat;
+  padding-left: 36px;
+  display: block;
+}
+.locked_small {
+  background-image: url('../img/locked_small.png');
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  display: block;
+}

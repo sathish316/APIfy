@@ -1,11 +1,12 @@
 %script{type: 'text/javascript'}
   mixpanel.track("EditAPI");
-%h2
+%h2{class: ('locked' if @resource.locked)}
   = "Modify #{@resource.name}"
   %a.btn.btn-mini.btn-info.edit_api_btn{href: "/resources/#{@resource.id}"}
     %i.icon-ok
     Test
 %input#help{type: :hidden, value: '.help-modify,.help-css,.help-xpath'}
+%br
 .row
   %div
     %form{action: "/resources/#{@resource.id}", method: "POST", class: "form-horizontal"}
