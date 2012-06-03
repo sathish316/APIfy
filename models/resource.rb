@@ -14,6 +14,7 @@ class Resource
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
   validates_format_of :name, with: /^[a-zA-Z0-9_]+$/
+  validates_format_of :key, with: /^[a-zA-Z0-9_]+$/
 
   before_update :reset_data
   before_save :default_attributes

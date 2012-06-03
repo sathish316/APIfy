@@ -40,9 +40,12 @@ end
 put '/resources/:id' do
   extract_attributes(params[:resource])
   @resource = Resource.find(params[:id])
-  @resource.update_attributes!(params[:resource])
-  @resource.reload.init!
-  redirect "/resources/#{@resource.id}"
+  if @resource.update_attributes(params[:resource])
+    @resource.reload.init!
+    redirect "/resources/#{@resource.id}"
+  else
+    haml :"resources/edit"
+  end
 end
 
 def extract_attributes(resource_params)
