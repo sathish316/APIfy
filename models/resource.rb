@@ -13,8 +13,11 @@ class Resource
 
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path
+
   validates_format_of :name, with: /^[a-zA-Z0-9_]+$/
+  validates_format_of :api_path, with: /^[a-zA-Z0-9_]+$/
   validates_format_of :key, with: /^[a-zA-Z0-9_]+$/
+  validate :validate_dom_attributes
 
   before_update :reset_data
   before_save :default_attributes
@@ -91,5 +94,15 @@ class Resource
 
   def default_attributes
     self.dom_attributes ||= {}
+  end
+
+  def validate_dom_attributes
+    return unless dom_attributes
+    dom_attributes.each_with_index do |(name, properties), index|
+      self.errors.add(:"dom_attributes[#{index}][name]", "can't be empty") if name.blank?
+      self.errors.add(:"dom_attributes[#{index}][name]", "is invalid") unless name =~ /^[a-zA-Z0-9_]+$/
+      selector = properties['css'] || properties['xpath']
+      self.errors.add(:"dom_attributes[#{index}][selector]", "can't be empty") if selector.blank?
+    end
   end
 end
