@@ -52,6 +52,30 @@ ActiveResource::Base.include_root_in_json = false
   </code>
 </pre>
 
+### <a id='python'></a>Use API from Python
+
+To get json data use urllib and json
+
+<pre class='prettyprint'>
+import urllib, json
+url = 'http://apify.heroku.com/api/big_bang_theory_episodes.json'
+json_response = urllib.urlopen(url).read()
+big_bang_theory_episodes = json.loads(json_response)
+</pre>
+
+big_bang_theory_episodes is a List where each episode is a dictionary
+
+<pre class='prettyprint'>
+>>> len(big_bang_theory_episodes)
+111
+
+>>> big_bang_theory_episodes[0]
+{'episode': '1', 'title': "Pilot"}
+
+>>> big_bang_theory_episodes[5]['title']
+"The Middle-Earth Paradigm"
+</pre>
+
 ### <a id='javascript'></a>Use API from Javascript using JSONP
 
 API can be consumed directly from Javascript / HTML using JSONP:
@@ -64,10 +88,6 @@ $.getJSON(url, function(data){
   console.log(JSON.parse(data))
 });
 </pre>
-
-### Use API from Python
-
-TODO
 
 ### Use API from Node.js
 
