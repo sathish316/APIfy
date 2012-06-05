@@ -51,8 +51,8 @@ You "*just gotta break out emacs and modify the perl script*" to fetch all episo
 
 5. That's it! Now you can consume these APIs directly as JSON or share it with others. 
 
-    * [http://apify.heroku.com/api/big_bang_theory_episodess.json](http://apify.heroku.com/api/big_bang_theory_episodess.json)
-    * [http://apify.heroku.com/api/big_bang_theory_episodess/5.json](http://apify.heroku.com/api/big_bang_theory_episodess/5.json)
+    * [http://apify.heroku.com/api/big_bang_theory_episodes.json](http://apify.heroku.com/api/big_bang_theory_episodess.json)
+    * [http://apify.heroku.com/api/big_bang_theory_episodes/5.json](http://apify.heroku.com/api/big_bang_theory_episodess/5.json)
 
     <br/>
     If you want to use APIs from Ruby, Javascript (JSONP), Mobile or any platform, check out examples [here](/tutorial/use)
