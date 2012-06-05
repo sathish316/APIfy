@@ -33,6 +33,38 @@ $(function(){
     var cssCount = $(iframe).contents().find(css).size();
     console.log("CSS count:" + cssCount);
     $('.fancybox-outer .content-selectors .firefly-css-count').html(cssCount);
+    highlightSelectedElements();
+  }
+
+  function highlightSelectedElements(){
+    var css = $('.fancybox-outer .content-selectors .firefly-css-selector').val();
+    var iframe = $('.fancybox-inner iframe');
+    if($('#firefly-styles').size() == 0){
+      var highlightStyle = '<style type="text/css" id="firefly-styles">.firefly-highlight { background-color:#99FFCC;}</style>';
+      $(highlightStyle).appendTo($(iframe).contents().find('head'));
+    }
+    $(iframe).contents().find('.firefly-highlight').removeClass('firefly-highlight');
+    $(iframe).contents().find(css).addClass('firefly-highlight');
+  }
+
+  function bindSelectorToUpdateCount(){
+    $('.fancybox-outer .content-selectors .firefly-xpath-selector').keypress(function(event){
+      if(event.keyCode == 13){
+        updateXPathCount();
+        return false;
+      } else {
+        return true;
+      }
+    });
+    $('.fancybox-outer .content-selectors .firefly-css-selector').keypress(function(event){
+      if(event.keyCode == 13){
+        updateCssCount();
+        return false;
+      } else {
+        return true;
+      }
+    })
+
   }
 
   $('#preview_page').click(function(){
@@ -46,6 +78,8 @@ $(function(){
         afterShow: function(){
           $('.fancybox-inner iframe').before($('.content-selectors').clone().show());
           logSelectors($('.fancybox-inner iframe'));
+          bindSelectorToUpdateCount();
+
         }
       });
     }
