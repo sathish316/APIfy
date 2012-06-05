@@ -6,8 +6,8 @@
 APIfy APIs can be used from:
 
 1. [Ruby](#ruby)
-2. [Javascript](#javascript)
-3. Python
+2. [Python](#python)
+3. [Javascript](#javascript)
 4. Node.js
 5. iOS
 6. Android
