@@ -1,19 +1,29 @@
 $(function(){
   function logSelectors(element){
     $(element).contents().find('*').bind('click', function(event){
+      // XPath selector
       var xpath = $(this).getXPath();
-      xpath = "/" + xpath.join('/');
-      var css = $(this).getCSSPath();
+      xpath = "//" + xpath.join('/');
       console.log('xpath:' + xpath);
       $('.fancybox-outer .content-selectors .firefly-xpath-selector').val(xpath);
+
+      // XPath count
+      var iframeDoc = window.frames[0].document
+      console.log
+      var xpathCount = iframeDoc.evaluate('count(' + xpath + ')', iframeDoc, null, XPathResult.ANY_TYPE, null).numberValue;
+      console.log("XPath count:" + xpathCount);
+      $('.firefly-xpath-count').html(xpathCount);
+
+      // CSS Selector
+      var css = $(this).getCSSPath();
       console.log('css:' + css);
       $('.fancybox-outer .content-selectors .firefly-css-selector').val(css);
-      // var xpathCount = document.evaluate('count(' + xpath + ')', element, null, XPathResult.ANY_TYPE, null).numberValue;
+
+      // CSS Count
       var cssCount = $(element).contents().find(css).size();
-      // console.log("XPath count:" + xpathCount);
-      // $('#firefly-xpath-count').html(0);
       console.log("CSS count:" + cssCount);
       $('.fancybox-outer .content-selectors .firefly-css-count').html(cssCount);
+
       event.stopPropagation();
       event.preventDefault();
     });
