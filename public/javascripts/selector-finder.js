@@ -74,7 +74,7 @@ jQuery.fn.extend({
 
 		var parent = this.parent();
 		var sameTagSiblings = parent.children(name);
-    if (sameTagSiblings.length > 1) { 
+    if (sameTagSiblings.length > 1 && path == '') { 
       allSiblings = parent.children();
       var index = allSiblings.index(this) + 1;
       if (index > 1) {
