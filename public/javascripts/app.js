@@ -1,3 +1,17 @@
+function addAttributeRow(name, selector, selector_type){
+  var row = $('.attribute_row_template').clone()
+    .removeClass('attribute_row_template')
+    .removeClass('hidden')
+    .addClass('attribute_row')
+    .show();
+  var count = $('.attribute_rows tr.attribute_row').size();
+  $(row).html($(row).html().replace(/\:number/g, count))
+  $(row).find('input.name').val(name);
+  $(row).find('input.selector').val(selector);
+  $(row).find('input.selector_type').val(selector_type);
+  $('.attribute_rows').append(row);
+}
+
 $(function(){
   var spinnerOpts = {
     lines: 15, // The number of lines to draw
@@ -45,14 +59,7 @@ $(function(){
   });
 
   $('.add_attribute_btn').click(function(event){
-    var row = $('.attribute_row_template').clone()
-      .removeClass('attribute_row_template')
-      .removeClass('hidden')
-      .addClass('attribute_row')
-      .show();
-    var count = $('.attribute_rows tr.attribute_row').size();
-    $(row).html($(row).html().replace(/\:number/g, count))
-    $('.attribute_rows').append(row);
+    addAttributeRow();
     event.preventDefault();
   });
 
@@ -90,4 +97,4 @@ $(function(){
     }
   });
   prettyPrint();
-})  
+});
