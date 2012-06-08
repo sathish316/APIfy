@@ -17,9 +17,12 @@ $(function(){
 
       highlight();
       event.stopPropagation();
-      // event.preventDefault();
+      event.preventDefault();
       return false;
     });
+    $(element).contents().find('td,ul,li,a,dt,dd').each(function(){
+      $(this).attr('title', 'Tag: ' + $(this).get(0).tagName + "\n" + 'Class: ' + ($(this).attr('class') || '-') + "\n" + 'Id:' + ($(this).attr('id') || '-'));
+    })
   }
 
   function updateXPathCount(){
