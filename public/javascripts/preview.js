@@ -20,9 +20,17 @@ $(function(){
       event.preventDefault();
       return false;
     });
-    $(element).contents().find('td,ul,li,a,dt,dd').each(function(){
-      $(this).attr('title', 'Tag: ' + $(this).get(0).tagName + "\n" + 'Class: ' + ($(this).attr('class') || '-') + "\n" + 'Id:' + ($(this).attr('id') || '-'));
-    })
+  }
+
+  function bindTooltip(iframe){
+    $(iframe).contents().find('td,ul,li,a,dt,dd').each(function(){
+      var tooltip = "";
+      var tag = 'Tag: ' + $(this).get(0).tagName;
+      var css_class = 'Class: ' + ($(this).attr('class') || '-');
+      var id = 'Id:' + ($(this).attr('id') || '-')
+      tooltip += tag + "\n" + css_class + "\n" + id;
+      $(this).attr('title', tooltip);
+    });    
   }
 
   function updateXPathCount(){
@@ -129,13 +137,29 @@ $(function(){
         href: previewUrl,
         autoSize: true,
         type: "iframe",
+        scrolling: 'vertical',
         afterShow: function(){
           $('.fancybox-inner iframe').before($('.content-selectors').clone().show());
           logSelectors($('.fancybox-inner iframe'));
+          bindTooltip($('.fancybox-inner iframe'));
           bindSelectorToUpdateCount();
           bindAddButtons();
         }
       });
     }
   });
+
+  $(function(){
+    $('#preview_page').tooltip({
+      placement: 'right'
+    });
+    $('#preview_page').tooltip('show');
+    $('#resource_html').bind("propertychange keyup input paste", function(){
+      if($(this).val().length > 0){
+        $('#preview_page').removeClass('disabled');
+      } else {
+        $('#preview_page').addClass('disabled');
+      }
+    })
+  })
 });

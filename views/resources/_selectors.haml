@@ -1,10 +1,15 @@
 .content-selectors.span8{style: "display: none;"}
   .row
+    .alert.alert-success
+      %button.close{"data-dismiss" => "alert"}
+        x
+      Select content on page to generate CSS / XPath and Add attributes.
+  .row
     .span8
-      .span1
+      .span1.firefly-css-highlight-indicator{title: "Point and Click elements in page to generate CSS selector"}
         CSS
       .span3
-        %input.input-xlarge.firefly-css-selector{type: "text", placeholder: "CSS selector"}
+        %input.input-xlarge.firefly-css-selector{type: "text", placeholder: "CSS selector", title: "Tweak css selectors and Press Enter to refresh selection"}
       .span2
         Found
         %span.firefly-css-count
@@ -15,10 +20,10 @@
           Add
   .row
     .span8
-      .span1
+      .span1.firefly-xpath-highlight-indicator{title: "Point and Click elements in page to generate XPath selector"}
         XPath
       .span3
-        %input.input-xlarge.firefly-xpath-selector{type: "text", placeholder: "XPATH selector"}
+        %input.input-xlarge.firefly-xpath-selector{type: "text", placeholder: "XPATH selector", title: "Tweak xpath selectors and Press Enter to refresh selection"}
       .span2
         Found
         %span.firefly-xpath-count
