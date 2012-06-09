@@ -152,9 +152,8 @@ $(function(){
         href: previewUrl,
         autoSize: true,
         type: "iframe",
-        scrolling: 'no',
         afterShow: function(){
-          $('.fancybox-inner').attr('style', {overflow: 'hidden'});
+          // $('.fancybox-inner').attr('style', {overflow: 'hidden'});
           displaySelectors();
           logSelectors($('.fancybox-inner iframe'));
           bindTooltip($('.fancybox-inner iframe'));
