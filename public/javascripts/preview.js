@@ -94,6 +94,11 @@ $(function(){
     }
   }
 
+  function resetHightlight(){
+    $('.firefly-css-highlight').removeClass('firefly-css-highlight');
+    $('.firefly-xpath-highlight').removeClass('firefly-xpath-highlight');
+  }
+
   function bindSelectorToUpdateCount(){
     $('.fancybox-outer .content-selectors .firefly-xpath-selector').keypress(function(event){
       if(event.keyCode == 13){
@@ -118,15 +123,25 @@ $(function(){
   function bindAddButtons(){
     $('.fancybox-outer .content-selectors .add-css-selector').click(function(){
       var css = $('.fancybox-outer .content-selectors .firefly-css-selector').val();
-      addAttributeRow('FOO', css, 'css');
+      var attributeName = $('.fancybox-outer .content-selectors .css-attribute-name').val();
+      addAttributeRow(attributeName, css, 'css');
       event.preventDefault();
     });
 
     $('.fancybox-outer .content-selectors .add-xpath-selector').click(function(){
       var xpath = $('.fancybox-outer .content-selectors .firefly-xpath-selector').val();
-      addAttributeRow('BAR', xpath, 'xpath');
+      var attributeName = $('.fancybox-outer .content-selectors .xpath-attribute-name').val();
+      addAttributeRow(attributeName, xpath, 'xpath');
       event.preventDefault();
     });
+  }
+
+
+  function displaySelectors(){
+    $('.fancybox-inner iframe').before($('.content-selectors-template').clone().
+      removeClass('content-selectors-template').
+      addClass('content-selectors').
+      show());
   }
 
   $('#preview_page').click(function(){
@@ -139,7 +154,7 @@ $(function(){
         type: "iframe",
         scrolling: 'vertical',
         afterShow: function(){
-          $('.fancybox-inner iframe').before($('.content-selectors').clone().show());
+          displaySelectors();
           logSelectors($('.fancybox-inner iframe'));
           bindTooltip($('.fancybox-inner iframe'));
           bindSelectorToUpdateCount();

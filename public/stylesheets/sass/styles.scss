@@ -100,7 +100,7 @@ input.error{
 }
 .content-selectors{
   width: 100%;
-  height: 20%;
+  height: 22%;
 }
 .content-selectors .row .span .span {
   valign: text-middle;
@@ -109,13 +109,16 @@ input.error{
   overflow: hidden;
 }
 .fancybox-inner iframe{
-  height: 80%;
+  height: 78%;
 }
 .firefly-css-highlight-indicator { background-color: #99FFCC;}
 .firefly-xpath-highlight-indicator { outline: 2px solid #FF0000 !important;}
-.tooltip{
-  // background-color: #FF9933;
-}
 .alert{
   padding: 1px;
+}
+.selector-hint{
+  padding-bottom: 5px;
+}
+.firefly-count {
+  font-size: 12px;
 }
