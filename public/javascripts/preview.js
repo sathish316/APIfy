@@ -23,7 +23,7 @@ $(function(){
   }
 
   function bindTooltip(iframe){
-    $(iframe).contents().find('td,ul,li,a,dt,dd').each(function(){
+    $(iframe).contents().find('th,td,ul,li,a,dt,dd').each(function(){
       var tooltip = "";
       var tag = 'Tag: ' + $(this).get(0).tagName;
       var css_class = 'Class: ' + ($(this).attr('class') || '-');
