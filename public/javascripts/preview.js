@@ -125,6 +125,7 @@ $(function(){
       var css = $('.fancybox-outer .content-selectors .firefly-css-selector').val();
       var attributeName = $('.fancybox-outer .content-selectors .css-attribute-name').val();
       addAttributeRow(attributeName, css, 'css');
+      $('.fancybox-outer .content-selectors .css-attribute-name').val('');
       event.preventDefault();
     });
 
@@ -132,6 +133,7 @@ $(function(){
       var xpath = $('.fancybox-outer .content-selectors .firefly-xpath-selector').val();
       var attributeName = $('.fancybox-outer .content-selectors .xpath-attribute-name').val();
       addAttributeRow(attributeName, xpath, 'xpath');
+      $('.fancybox-outer .content-selectors .xpath-attribute-name').val('');
       event.preventDefault();
     });
   }
