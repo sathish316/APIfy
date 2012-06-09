@@ -16,19 +16,7 @@
         = partial :"resources/_text_field", locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge', label: 'HTML URL', help_button: :'resources/_preview'}
         = partial :"resources/_api_path"
         = partial :"resources/_text_field", locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute', label: 'Unique Attribute'}
-        .control-group
-          %label.control-label DOM Attributes
-          .controls
-            %table.table.table-striped
-              %thead
-                %tr
-                  %th
-                    %a.btn.btn-mini.add_attribute_btn{href: '#'}
-                      %i.icon-plus
-                  %th Attribute
-                  %th DOM Selector
-                  %th Selector Type
-              %tbody.attribute_rows
+        = partial :"resources/_dom_attributes", locals: {resource: @resource}
         .actions
           %input.btn.btn-primary{type: 'Submit', value: 'Create API'}
           %a.btn{href: '/resources'}

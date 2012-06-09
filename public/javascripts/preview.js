@@ -168,7 +168,8 @@ $(function(){
     $('#preview_page').tooltip({
       placement: 'right'
     });
-    $('#preview_page').tooltip('show');
+    if(!$('#resource_html').closest('.control-group').hasClass('error'))
+      $('#preview_page').tooltip('show');
     $('#resource_html').bind("propertychange keyup input paste", function(){
       if($(this).val().length > 0){
         $('#preview_page').removeClass('disabled');
