@@ -6,33 +6,22 @@
     %i.icon-book
     View Tutorial
 %input#help{type: :hidden, value: '.help-create,.help-css,.help-xpath'}
+%input#preview-tooltip{type: :hidden, value: 'right'}
 %br
 .row
   %div
     %form{action: "/resources", method: "POST", class: "form-horizontal"}
       %fieldset
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :name}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge', label: 'HTML URL'}
-        = partial :"resources/_api_path", template_engine: :haml
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute', label: 'Unique Attribute'}
-        .control-group
-        
-          %label.control-label DOM Attributes
-          .controls
-            %table.table.table-striped
-              %thead
-                %tr
-                  %th
-                    %a.btn.btn-mini.add_attribute_btn{href: '#'}
-                      %i.icon-plus
-                  %th Attribute
-                  %th DOM Selector
-                  %th Selector Type
-              %tbody.attribute_rows
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :name}
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :description, size: 'xlarge'}
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :html, placeholder: 'URL to convert to API', size: 'xlarge', label: 'HTML URL', help_button: :'resources/_preview'}
+        = partial :"resources/_api_path"
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :key, placeholder: 'Unique attribute', label: 'Unique Attribute'}
+        = partial :"resources/_dom_attributes", locals: {resource: @resource}
         .actions
           %input.btn.btn-primary{type: 'Submit', value: 'Create API'}
           %a.btn{href: '/resources'}
             %i.icon-circle-arrow-left
             Back to API Listing
     = partial :"resources/_attribute_row_template"
+    = partial :"resources/_selectors"

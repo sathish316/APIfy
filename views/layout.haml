@@ -6,6 +6,7 @@
     %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/bootstrap-responsive.min.css'}
     %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/styles.css'}
     %link{rel: 'stylesheet', type: "text/css", href: 'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'}
+    %link{rel: 'stylesheet', type: "text/css", href: '/stylesheets/jquery.fancybox.css'}
     = partial '_mixpanel_script', template_engine: :erb
   %body
     .container-fluid
@@ -16,12 +17,17 @@
             = yield
           .span3
             = partial 'help/_help'
+            = partial '_modals'
     %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/spin.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/prettify.js'}
+    %script{type: 'text/javascript', src: '/javascripts/selector-finder.js'}
+    %script{type: 'text/javascript', src: '/javascripts/selector-logger.js'}
+    %script{type: 'text/javascript', src: '/javascripts/jquery.fancybox.pack.js'}
     %script{type: 'text/javascript', src: '/application.js'}
     %script{type: 'text/javascript', src: '/javascripts/app.js'}
+    %script{type: 'text/javascript', src: '/javascripts/preview.js'}
     = partial '_tweet_script', template_engine: :erb
     = partial '_webengage_widget', template_engine: :erb
     %footer

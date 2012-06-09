@@ -1,0 +1,44 @@
+.control-group
+  %label.control-label DOM Attributes
+  .controls
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+            - unless resource.locked
+              %a.btn.btn-mini.add_attribute_btn{href: '#'}
+                %i.icon-plus
+          %th Attribute
+          %th DOM Selector
+          %th Selector Type
+      %tbody.attribute_rows
+        - count = 0
+        - (resource.dom_attributes || {}).each do |name,selector|
+          %tr.attribute_row
+            - selector_type = (selector['css'] ? 'css' : 'xpath')
+            - selector_value = selector['css'] || selector['xpath']
+            - unless resource.locked
+              %td
+                %a.btn.btn-mini.remove_attribute_btn{href: '#'}
+                  %i.icon-minus
+              %td
+                - name_error = resource.errors.get(:"dom_attributes[#{count}][name]")
+                %input.input-small{name: "resource[dom_attributes][name][#{count}]", type: 'text', value: name, class: (' error' if name_error), title: (name_error.first if name_error)}
+              %td
+                - selector_error = resource.errors.get(:"dom_attributes[#{count}][selector]")
+                %input.input-medium{name: "resource[dom_attributes][selector][#{count}]", type: 'text', value: selector_value, class: (' error' if selector_error), title: (selector_error.first if selector_error)}
+              %td
+                %select.span2{name: "resource[dom_attributes][selector_type][#{count}]", value: selector_type}
+                  %option{selected: ('selected' if selector_type == 'css')}
+                    css
+                  %option{selected: ('selected' if selector_type == 'xpath')}
+                    xpath
+            - else
+              %td
+              %td
+                &= name
+              %td
+                &= selector_value
+              %td
+                &= selector_type
+          - count += 1

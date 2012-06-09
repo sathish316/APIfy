@@ -6,69 +6,31 @@
     %i.icon-ok
     Test
 %input#help{type: :hidden, value: '.help-modify,.help-css,.help-xpath'}
+%input#preview-tooltip{type: :hidden, value: 'top'}
 %br
 .row
   %div
     %form{action: "/resources/#{@resource.id}", method: "POST", class: "form-horizontal"}
       %fieldset
         %input{type: 'hidden', name: '_method', value: 'PUT'}
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :description, size: 'xlarge', read_only: @resource.locked}
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :description, size: 'xlarge', read_only: @resource.locked}
         .control-group
           %label.control-label HTML URL
           .controls
-            %span.api_path
-              %a{href: @resource.html, target: '_blank'}
-                = @resource.html
+            %span
+              %a#resource_html{href: @resource.html, target: '_blank'}=@resource.html
+            - unless @resource.locked
+              %span.right
+                = partial :"resources/_preview", locals: {disabled: false}
+              %span.clear
         .control-group
           %label.control-label API Path
           .controls
             %span.api_path
               %a{href: "/api/#{@resource.api_path}.json", target: '_blank'}
                 \/api/#{@resource.api_path}.json
-        = partial :"resources/_text_field", template_engine: :haml, locals: {model: @resource, attribute: :key, label: 'Unique attribute', read_only: @resource.locked}
-        .control-group
-          %label.control-label DOM Attributes
-          .controls
-            %table.table.table-striped
-              %thead
-                %tr
-                  %th
-                    - unless @resource.locked
-                      %a.btn.btn-mini.add_attribute_btn{href: '#'}
-                        %i.icon-plus
-                  %th Attribute
-                  %th DOM Selector
-                  %th Selector Type
-              %tbody.attribute_rows
-                - count = 0
-                - @resource.dom_attributes.each do |name,selector|
-                  %tr.attribute_row
-                    - selector_type = (selector['css'] ? 'css' : 'xpath')
-                    - selector_value = selector['css'] || selector['xpath']
-                    - unless @resource.locked
-                      %td
-                        %a.btn.btn-mini.remove_attribute_btn{href: '#'}
-                          %i.icon-minus
-                      %td
-                        %input.input-small{name: "resource[dom_attributes][name][#{count}]", type: 'text', value: name, class: (' error' if @resource.errors.get(:"dom_attributes[#{count}][name]"))}
-                      %td
-                        %input.input-medium{name: "resource[dom_attributes][selector][#{count}]", type: 'text', value: selector_value, class: (' error' if @resource.errors.get(:"dom_attributes[#{count}][selector]"))}
-                      %td
-                        %select.span2{name: "resource[dom_attributes][selector_type][#{count}]", value: selector_type}
-                          %option{selected: ('selected' if selector_type == 'css')}
-                            css
-                          %option{selected: ('selected' if selector_type == 'xpath')}
-                            xpath
-                    - else
-                      %td
-                      %td
-                        &= name
-                      %td
-                        &= selector_value
-                      %td
-                        &= selector_type
-                  - count += 1
-
+        = partial :"resources/_text_field", locals: {model: @resource, attribute: :key, label: 'Unique attribute', read_only: @resource.locked}
+        = partial :"resources/_dom_attributes", locals: {resource: @resource}
         .actions
           - unless @resource.locked
             %input.btn.btn-primary{type: 'Submit', value: 'Update'}
@@ -76,3 +38,4 @@
             %i.icon-circle-arrow-left
             Back to API Listing
     = partial :"resources/_attribute_row_template"
+    = partial :"resources/_selectors"

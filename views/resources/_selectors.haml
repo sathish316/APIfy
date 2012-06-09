@@ -1,0 +1,34 @@
+.content-selectors-template.span8{style: "display: none;"}
+  .row.selector-hint
+    %em
+      Select content on page to generate CSS / XPath Selectors and Add attribute. Tweak Selectors if required and Press Enter to Refresh.
+  .row
+    .span8
+      .span1.firefly-css-highlight-indicator{title: "Point and Click elements in page to generate CSS selector"}
+        CSS
+      .span3
+        %input.input-xlarge.firefly-css-selector{type: "text", placeholder: "CSS selector", title: "Tweak css selectors and Press Enter to refresh selection"}
+      .span1.lead.firefly-count
+        Found
+        %strong.firefly-css-count
+          0
+      .span1
+        %input.input-small.css-attribute-name{placeholder: 'Attribute name'} 
+      .span1
+        %a.btn.add-css-selector{href: '#'}
+          Add
+  .row
+    .span8
+      .span1.firefly-xpath-highlight-indicator{title: "Point and Click elements in page to generate XPath selector"}
+        XPath
+      .span3
+        %input.input-xlarge.firefly-xpath-selector{type: "text", placeholder: "XPATH selector", title: "Tweak xpath selectors and Press Enter to refresh selection"}
+      .span1.lead.firefly-count
+        Found
+        %strong.firefly-xpath-count
+          0
+      .span1
+        %input.input-small.xpath-attribute-name{placeholder: 'Attribute name'} 
+      .span1
+        %a.btn.add-xpath-selector{href: '#'}
+          Add

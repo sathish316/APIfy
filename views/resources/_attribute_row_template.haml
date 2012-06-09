@@ -1,14 +1,14 @@
 %table
   %tbody
-    %tr.attribute_row_template.hidden
+    %tr.attribute_row_template{style: 'display:none'}
       %td
         %a.btn.btn-mini.remove_attribute_btn{href: '#'}
           %i.icon-minus
       %td
-        %input.input-small{name: "resource[dom_attributes][name][:number]", type: 'text', placeholder: 'attribute name'}
+        %input.input-small.name{name: "resource[dom_attributes][name][:number]", type: 'text', placeholder: 'attribute name'}
       %td
-        %input.input-medium{name: "resource[dom_attributes][selector][:number]", type: 'text', placeholder: 'css / xpath selector'}
+        %input.input-medium.selector{name: "resource[dom_attributes][selector][:number]", type: 'text', placeholder: 'css / xpath selector'}
       %td
-        %select.span2{name: "resource[dom_attributes][selector_type][:number]"}
+        %select.span2.selector_type{name: "resource[dom_attributes][selector_type][:number]"}
           %option css
           %option xpath
