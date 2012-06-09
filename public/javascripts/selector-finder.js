@@ -31,16 +31,23 @@ jQuery.fn.extend({
 		}
 
 	  if(node.nodeType == 1) {
-	  	var id = node.id ? "[@id='"+node.id+"']" : '';
-	  	// var _class = node.className ? "[@class='"+node.className.replace(' firefly-css-highlight','').replace(' firefly-xpath-highlight','')+"']" : '';
-	  	var _class = node.className ? "[starts-with(@class,'"+node.className.replace(' firefly-css-highlight','').replace(' firefly-xpath-highlight','')+"')]" : '';
-	  	var id_class = id + _class
-	  	var position = count > 0 ? "["+count+"]" : '';
-	    path.push(node.nodeName.toLowerCase() + id_class + position);
+	  	var id = node.id ? "@id='"+node.id+"'" : '';
+	  	var _class = node.className ? "starts-with(@class,'"+ node.className.
+	  		replace(/\s*firefly-css-highlight/,'').
+	  		replace(/\s*firefly-xpath-highlight/,'')+"')" : '';
+	  	var position = count > 0 ? "position() = "+count : '';
+	    path.push(node.nodeName.toLowerCase() + this._getXPathAttributeConditions(id, _class, position));
 	  }
 	  return path;
 	},
 
+	_getXPathAttributeConditions: function(id, _class, position){
+		var attrs = [];
+		if(id.length > 0) attrs.push(id);
+		if(_class.length > 0) attrs.push(_class);
+		if(position.length > 0) attrs.push(position)
+		return (attrs.length > 0 ? "[" + attrs.join(' and ') + "]": '');
+	},
 	/*
 		jQuery-GetPath v0.01, by Dave Cardwell. (2007-04-27)
 		
@@ -79,7 +86,7 @@ jQuery.fn.extend({
 
 		// Add any classes.
 		if ( typeof _class != 'undefined' ){
-			_class = _class.replace(" firefly-css-highlight","").replace(" firefly-xpath-highlight","")
+			_class = _class.replace("firefly-css-highlight",'').replace("firefly-xpath-highlight",'');
 			cur += '.' + _class.split(/[\s\n]+/).join('.');
 		}
 
