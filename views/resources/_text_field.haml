@@ -8,7 +8,7 @@
   .controls
     - unless read_only
       %input{id: "#{model_name}_#{attribute}", name: "#{model_name}[#{attribute}]", value: model.send(attribute), type: 'text', class: "input-#{input_size}", placeholder: (placeholder rescue nil)}
-      = partial help_button, value: model.send(attribute) if defined?(help_button)  
+      = partial help_button, locals: {disabled: true} if defined?(help_button)  
       %span{class: 'help-inline'}
         = model.errors.get(attribute).try(:first)
     - else

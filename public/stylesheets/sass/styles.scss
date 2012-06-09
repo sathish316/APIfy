@@ -105,11 +105,9 @@ input.error{
 .content-selectors .row .span .span {
   valign: text-middle;
 }
-.fancybox-inner {
-  overflow: hidden;
-}
 .fancybox-inner iframe{
   height: 78%;
+  overflow: auto;
 }
 .firefly-css-highlight-indicator { background-color: #99FFCC;}
 .firefly-xpath-highlight-indicator { outline: 2px solid #FF0000 !important;}

@@ -145,15 +145,16 @@ $(function(){
   }
 
   $('#preview_page').click(function(){
-    var url = $('#resource_html').val();
+    var url = $('#resource_html').val() || $('#resource_html').text();
     var previewUrl = "/preview?url=" + url;
     if(url){
       $.fancybox({
         href: previewUrl,
         autoSize: true,
         type: "iframe",
-        scrolling: 'vertical',
+        scrolling: 'no',
         afterShow: function(){
+          $('.fancybox-inner').attr('style', {overflow: 'hidden'});
           displaySelectors();
           logSelectors($('.fancybox-inner iframe'));
           bindTooltip($('.fancybox-inner iframe'));
@@ -166,7 +167,7 @@ $(function(){
 
   $(function(){
     $('#preview_page').tooltip({
-      placement: 'right'
+      placement: $('#preview-tooltip').val()
     });
     if(!$('#resource_html').closest('.control-group').hasClass('error'))
       $('#preview_page').tooltip('show');
@@ -176,6 +177,6 @@ $(function(){
       } else {
         $('#preview_page').addClass('disabled');
       }
-    })
+    });
   })
 });
