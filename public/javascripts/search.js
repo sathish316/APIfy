@@ -1,9 +1,13 @@
+var searchInProgress = false;
 $('#search-api').typeahead({
   source: function (typeahead, query) {
-    mixpanel.track('Search');
-    if ($('#search-api').val().length > 2){
+    if ($('#search-api').val().length > 2 && !searchInProgress){
+      mixpanel.track('Search');
+      searchInProgress = true;
       return $.get('/api_search.json', { query: query }, function (data) {
         return typeahead.process(data);
+      }).complete(function(){
+        searchInProgress = false;
       });
     }
   },
