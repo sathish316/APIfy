@@ -22,7 +22,6 @@ require './models/resource_count'
 require './db/resources'
 require './config'
 require './helper'
-require './register'
 
 require './api'
 require './resource'
