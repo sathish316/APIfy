@@ -147,6 +147,7 @@ $(function(){
   }
 
   $('#preview_page').click(function(){
+    mixpanel.track('Preview');
     var url = $('#resource_html').val() || $('#resource_html').text();
     var previewUrl = "/preview?url=" + url;
     if(url){
