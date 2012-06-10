@@ -17,3 +17,4 @@
 = partial :"resources/_pagination", locals: {catalog: @catalog}
 .content.span6
   = partial :"resources/_listing", locals: {resources: @resources}
+  = paginate @resources
