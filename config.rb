@@ -6,6 +6,9 @@ class Apify < Sinatra::Base
   end
 
   use Rack::MethodOverride
+
+  set :root, File.dirname(__FILE__)
+
   # Sass config
   use Sass::Plugin::Rack
 
