@@ -9,6 +9,7 @@ get '/resources' do
   @resources = @resources.catalog(params[:catalog]) if params[:catalog] and params[:catalog] != 'All'
   @resources = @resources.asc(:name)
   @catalog = params[:catalog] || 'All'
+  @catalog_counts = ResourceCount.counts
   haml :"resources/index"
 end
 

@@ -24,6 +24,8 @@ class Resource
 
   scope :catalog, lambda {|char| where(name: /^#{char}/i)}
 
+  after_create :refresh_count
+
   def init!
     eval code
   end
@@ -106,5 +108,9 @@ class Resource
       selector = properties['css'] || properties['xpath']
       self.errors.add(:"dom_attributes[#{index}][selector]", "can't be empty") if selector.blank?
     end
+  end
+
+  def refresh_count
+    ResourceCount.refresh!
   end
 end

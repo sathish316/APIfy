@@ -16,26 +16,4 @@
 .clear
 = partial :"resources/_pagination", locals: {catalog: @catalog}
 .content.span6
-  .resource_listing
-    - @resources.each do |resource|
-      .resource_row
-        %h4
-          %a{href: "/resources/#{resource.id}"}
-            &= resource.name
-          %span.resource_actions
-            %a.btn.btn-mini.edit_api_btn{href: "/resources/#{resource.id}/edit"}
-              %i.icon-edit
-              Edit
-            %a.btn.btn-mini.btn-info.edit_api_btn{href: "/resources/#{resource.id}"}
-              %i.icon-ok
-              Test
-          .clear
-        %dl.dl-horizontal
-          %dt Description
-          %dd
-            &= resource.description || "-"
-          %dt API
-          %dd
-            - url = "/api/#{resource.api_path}.json"
-            %a{href: url}
-              &= url
+  = partial :"resources/_listing", locals: {resources: @resources}
