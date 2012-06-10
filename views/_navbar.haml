@@ -28,3 +28,5 @@
           %li.hidden{class: ('active' if @current_page == 'suggestions')}
             %a{href: '/suggestions'}
               Suggest API
+        %form{action: "/resources/search", class: "navbar-search pull-left"}
+          %input{type: "text", placeholder: "Search API", class: "search-query span2", id: 'search-api'}

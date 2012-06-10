@@ -5,13 +5,13 @@ $(function(){
       // XPath selector
       var xpath = $(this).getXPath();
       xpath = "//" + xpath.join('/');
-      console.log('xpath:' + xpath);
+      // console.log('xpath:' + xpath);
       $('.fancybox-outer .content-selectors .firefly-xpath-selector').val(xpath);
       updateXPathCount();
 
       // CSS Selector
       var css = $(this).getCSSPath();
-      console.log('css:' + css);
+      // console.log('css:' + css);
       $('.fancybox-outer .content-selectors .firefly-css-selector').val(css);
       updateCssCount();
 
@@ -37,7 +37,7 @@ $(function(){
     var xpath = $('.fancybox-outer .content-selectors .firefly-xpath-selector').val();
     var iframeDoc = window.frames[0].document;
     var xpathCount = iframeDoc.evaluate('count(' + xpath + ')', iframeDoc, null, XPathResult.ANY_TYPE, null).numberValue;
-    console.log("XPath count:" + xpathCount);
+    // console.log("XPath count:" + xpathCount);
     $('.firefly-xpath-count').html(xpathCount);
   }
 
@@ -45,7 +45,7 @@ $(function(){
     var css = $('.fancybox-outer .content-selectors .firefly-css-selector').val();
     var iframe = $('.fancybox-inner iframe');
     var cssCount = $(iframe).contents().find(css).size();
-    console.log("CSS count:" + cssCount);
+    // console.log("CSS count:" + cssCount);
     $('.fancybox-outer .content-selectors .firefly-css-count').html(cssCount);
   }
 
