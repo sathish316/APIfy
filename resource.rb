@@ -5,7 +5,10 @@ before do
 end
 
 get '/resources' do
-  @resources = Resource.all.asc(:name)
+  @resources = Resource.all
+  @resources = @resources.catalog(params[:catalog]) if params[:catalog] and params[:catalog] != 'All'
+  @resources = @resources.asc(:name)
+  @catalog = params[:catalog] || 'All'
   haml :"resources/index"
 end
 

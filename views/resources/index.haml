@@ -13,6 +13,8 @@
           Create JSON API
     .clear
 %input#help{type: :hidden, value: '.help-intro,.help-getting-started'}
+.clear
+= partial :"resources/_pagination", locals: {catalog: @catalog}
 .content.span6
   .resource_listing
     - @resources.each do |resource|

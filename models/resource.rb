@@ -22,6 +22,8 @@ class Resource
   before_update :reset_data
   before_save :default_attributes
 
+  scope :catalog, lambda {|char| where(name: /^#{char}/i)}
+
   def init!
     eval code
   end
