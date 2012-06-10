@@ -121,7 +121,7 @@ $(function(){
   }
 
   function bindAddButtons(){
-    $('.fancybox-outer .content-selectors .add-css-selector').click(function(){
+    $('.fancybox-outer .content-selectors .add-css-selector').click(function(event){
       var css = $('.fancybox-outer .content-selectors .firefly-css-selector').val();
       var attributeName = $('.fancybox-outer .content-selectors .css-attribute-name').val();
       addAttributeRow(attributeName, css, 'css');
@@ -129,7 +129,7 @@ $(function(){
       event.preventDefault();
     });
 
-    $('.fancybox-outer .content-selectors .add-xpath-selector').click(function(){
+    $('.fancybox-outer .content-selectors .add-xpath-selector').click(function(event){
       var xpath = $('.fancybox-outer .content-selectors .firefly-xpath-selector').val();
       var attributeName = $('.fancybox-outer .content-selectors .xpath-attribute-name').val();
       addAttributeRow(attributeName, xpath, 'xpath');
