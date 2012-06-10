@@ -1,30 +1,34 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get '/api/:resource.json' do
-  jsonp_or_json find_resource.all.to_json
-end
+class Apify < Sinatra::Base
+  get '/api/:resource.json' do
+    jsonp_or_json find_resource.all.to_json
+  end
 
-get '/api/:resource/:id.json' do
-  jsonp_or_json find_record.to_json
-end
+  get '/api/:resource/:id.json' do
+    jsonp_or_json find_record.to_json
+  end
 
-def find_resource
-  resource = Resource.first(conditions: {api_path: params[:resource]})
-  raise Sinatra::NotFound unless resource
-  resource
-end
+  private
 
-def find_record
-  record = find_resource.find(params[:id])
-  raise Sinatra::NotFound unless record
-  record
-end
+  def find_resource
+    resource = Resource.first(conditions: {api_path: params[:resource]})
+    raise Sinatra::NotFound unless resource
+    resource
+  end
 
-def jsonp_or_json(result)
-  params[:callback] ? (jsonp result) : (json result)
-end
+  def find_record
+    record = find_resource.find(params[:id])
+    raise Sinatra::NotFound unless record
+    record
+  end
 
-def json(result)
-  content_type :json
-  result
+  def jsonp_or_json(result)
+    params[:callback] ? (jsonp result) : (json result)
+  end
+
+  def json(result)
+    content_type :json
+    result
+  end
 end

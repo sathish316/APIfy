@@ -86,8 +86,11 @@ jQuery.fn.extend({
 
 		// Add any classes.
 		if ( typeof _class != 'undefined' ){
-			_class = _class.replace("firefly-css-highlight",'').replace("firefly-xpath-highlight",'');
-			cur += '.' + _class.split(/[\s\n]+/).join('.');
+			_class = _class.replace(/\s*firefly-css-highlight/,'').replace(/\s*firefly-xpath-highlight/,'');
+			_class = _class.split(/[\s\n]+/).join('.');
+			if(_class.length > 0){
+				cur += '.' + _class;
+			}
 		}
 
 		var parent = this.parent();

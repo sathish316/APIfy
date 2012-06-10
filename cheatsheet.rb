@@ -1,9 +1,12 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get '/cheatsheets/css' do
-  haml :"cheatsheets/css", layout: false
-end
+class Apify < Sinatra::Base
 
-get '/cheatsheets/xpath' do
-  haml :"cheatsheets/xpath", layout: false
+  get '/cheatsheets/css' do
+    haml :"cheatsheets/css", layout: false
+  end
+
+  get '/cheatsheets/xpath' do
+    haml :"cheatsheets/xpath", layout: false
+  end
 end

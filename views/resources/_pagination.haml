@@ -1,0 +1,24 @@
+.row
+  .pagination
+    %ul
+      %li{class: ('active' if catalog == 'All')}
+        %a{href: "/resources"}
+          %strong
+            All
+      %li
+        %a{href: "/resources?catalog=A"}
+          <<
+      %li{class: ('disabled' if catalog == 'A')}
+        %a{href: (catalog == 'A' ? '#' : "/resources?catalog=#{(catalog.ord-1).chr}")}
+          <
+      - ('A'..'Z').each do |char|
+        - if (char.ord - catalog.ord).abs <= 5
+          %li{class: "#{'active' if char == @catalog} #{'disabled' if @catalog_counts[char] == 0}"}
+            %a{href: "/resources?catalog=#{char}"}
+              = char
+      %li{class: ('disabled' if catalog == 'Z')}
+        %a{href: (catalog == 'Z' ? '#' : "/resources?catalog=#{(catalog.ord+1).chr}")}
+          >
+      %li
+        %a{href: "/resources?catalog=Z"}
+          >>

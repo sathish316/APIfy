@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
+require 'sinatra/base'
 require 'coffee-script'
 require 'sass/plugin/rack'
 require 'scrapify'
@@ -12,25 +13,34 @@ require 'sinatra/partial'
 require 'sinatra/jsonp'
 require 'uri'
 require 'net/http'
+require 'padrino-helpers'
+require 'kaminari/sinatra'
+require 'rdiscount'
+
 require './models/resource'
+require './models/resource_count'
 require './db/resources'
 require './config'
 require './helper'
+require './register'
+
 require './api'
 require './resource'
 require './tutorial'
 require './cheatsheet'
 require './preview'
 
-get '/' do
-  redirect '/resources'
-end
+class Apify < Sinatra::Base
+  get '/' do
+    redirect '/resources'
+  end
 
-get '/application.js' do
-  coffee :application
-end
+  get '/application.js' do
+    coffee :application
+  end
 
-get '/about' do
-  @current_page = 'about'
-  markdown :about
+  get '/about' do
+    @current_page = 'about'
+    markdown :about
+  end
 end
