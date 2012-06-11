@@ -7,7 +7,7 @@ class Resource
   field :key, type: String
   field :dom_attributes, type: Hash
   field :data, type: Array
-  field :expire_data, type: Boolean
+  field :expire_data, type: Integer
   field :expire_data_at, type: DateTime
   field :locked, type: Boolean
 
@@ -20,7 +20,8 @@ class Resource
   validate :validate_dom_attributes
 
   before_update :reset_data
-  before_save :default_attributes
+  before_save :default_dom_attributes
+  before_create :default_expire_attributes
 
   scope :catalog, lambda {|char| where(name: /^#{char}/i)}
 
@@ -46,18 +47,10 @@ class Resource
   private
 
   def expired?
-    expired = false
-    if expire_data
-      unless self.expire_data_at
-        # first time
-        self.expire_data_at = 1.hour.from_now
-        save
-      end
-      expired = Time.now >= self.expire_data_at
-      if expired
-        self.expire_data_at = 1.hour.from_now
-        save
-      end
+    expired = Time.now >= self.expire_data_at
+    if expired
+      self.expire_data_at = expire_data.minutes.from_now
+      save
     end
     expired
   end
@@ -96,8 +89,17 @@ class Resource
     self.data = nil if html_changed? or dom_attributes_changed? or key_changed?
   end
 
-  def default_attributes
+  def default_dom_attributes
     self.dom_attributes ||= {}
+  end
+
+=begin
+  For existing Resource, Run this migration:
+  Resource.all.update(expire_data: 1440, expire_data_at: 1440.minutes.from_now)
+=end
+  def default_expire_attributes
+    self.expire_data = 60*24
+    self.expire_data_at = self.expire_data.minutes.from_now
   end
 
   def validate_dom_attributes
