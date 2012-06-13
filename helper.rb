@@ -4,6 +4,7 @@ class Apify < Sinatra::Base
       str.capitalize
     end
   end
+  helpers ::Sinatra::Jsonp
   register ::Kaminari::Helpers::SinatraHelpers
   register ::Sinatra::Partial
 end
