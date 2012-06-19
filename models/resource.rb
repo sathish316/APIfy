@@ -80,8 +80,10 @@ class Resource
   def dom_attribute_selectors
     attribute_declarations = dom_attributes.map do |k,v|
       type = v['css'] ? 'css' : 'xpath'
-      selector = v[type]
-      "attribute :#{k}, #{type}: \"#{selector.gsub('"',"'")}\""
+      selector, child_selector = v[type].split('|')
+      attribute_declarations = "attribute :#{k}, #{type}: \"#{selector.gsub('"',"'")}\""
+      child_attribute_declarations = child_selector ? "do |element| element.children.send(:#{type}, \"#{child_selector.gsub('"',"'")}\").map(&:value) end" : ""
+      attribute_declarations + child_attribute_declarations
     end
   end
 

@@ -109,7 +109,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     sass (3.1.19)
-    scrapify (0.0.5)
+    scrapify (0.0.6)
       activesupport
       json
       nokogiri
@@ -150,7 +150,7 @@ DEPENDENCIES
   padrino
   rdiscount
   sass
-  scrapify (= 0.0.5)
+  scrapify (= 0.0.6)
   sinatra
   sinatra-jsonp
   sinatra-partial
