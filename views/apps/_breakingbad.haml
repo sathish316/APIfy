@@ -1,0 +1,24 @@
+.thumbnail
+  %img{alt: "Breaking Bad Chemistry Game", src: "/img/apps/app_breakingbad.png", width: 260, height: 180}
+  .caption
+    %h5
+      Breaking Bad Chemistry Game
+    %p
+      Mashup of Breaking bad cast from IMDB with Periodic table from Wikipedia to create an addictive game
+    %p
+      %a.btn.btn-primary{href: "http://breakingbadtrivia.heroku.com", target: '_blank'}
+        App
+      %a.btn.hidden{href: "https://github.com/sathish316/breaking_bad_chemistry_game", target: '_blank'}
+        Github
+      .btn-group
+        %a.btn{href: "#"}
+          APIs
+        %a.btn.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{href: "http://apify.heroku.com/resources/4fdf2023c1caa90001000006", target: '_blank'}
+              Breaking Bad Cast API
+          %li
+            %a{href: "http://apify.heroku.com/resources/4fdf1c35c1caa90001000004", target: '_blank'}
+              Periodic Table API

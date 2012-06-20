@@ -20,13 +20,11 @@
                 %a{href: '/tutorial/create'} Create API
               %li
                 %a{href: '/tutorial/use'} Use API
-              %li.hidden
-                %a{href: '/tutorial/showcase'} Built with APIfy
+          %li{class: ('active' if @current_page == 'apps')}
+            %a{href: '/apps'}
+              Apps
           %li{class: ('active' if @current_page == 'about')}
             %a{href: '/about'}
               About
-          %li.hidden{class: ('active' if @current_page == 'suggestions')}
-            %a{href: '/suggestions'}
-              Suggest API
         %form{action: "/resources/search", class: "navbar-search pull-left"}
           %input{type: "text", placeholder: "Search API", class: "search-query span2", id: 'search-api'}

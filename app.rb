@@ -29,6 +29,7 @@ require './tutorial'
 require './cheatsheet'
 require './preview'
 require './api_search'
+require './apps'
 
 class Apify < Sinatra::Base
   get '/' do

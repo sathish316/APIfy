@@ -13,11 +13,15 @@
       .span12
         = partial '_navbar'
         .row
-          .span8#app-content
-            = yield
-          .span3
-            = partial 'help/_help'
-            = partial '_modals'
+          - if @current_page == 'apps'
+            .span12#app-content
+              = yield
+          - else
+            .span8#app-content
+              = yield
+            .span3
+              = partial 'help/_help'
+              = partial '_modals'
     %script{type: 'text/javascript', src: '/javascripts/jquery.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/bootstrap.min.js'}
     %script{type: 'text/javascript', src: '/javascripts/bootstrap-typeahead.js'}

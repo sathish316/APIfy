@@ -1,0 +1,28 @@
+%script{type: "text/javascript"}
+  mixpanel.track("Apps");
+%h2
+  Apps
+
+%h3
+  Built with APIfy
+
+%p
+  The following apps are built using APIfy as backend.
+
+%p
+  If you want your App to be listed here, please send a link to your App using the feedback widget on the right.
+
+%br
+
+.row
+  %ul.thumbnails
+    %li.span4.app
+      = partial "apps/_randomsub"
+    %li.span4.app
+      = partial "apps/_breakingbad"
+    %li.span4.app
+      = partial "apps/_thirukural"
+.row
+  %ul.thumbnails
+    %li.span4.app
+      = partial "apps/_rpsls"

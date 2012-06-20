@@ -12,9 +12,4 @@ class Apify < Sinatra::Base
     @current_page = 'tutorial'
     markdown :"tutorial/use"
   end
-
-  get '/tutorial/showcase' do
-    @current_page = 'tutorial'
-    markdown :"tutorial/showcase"
-  end
 end
