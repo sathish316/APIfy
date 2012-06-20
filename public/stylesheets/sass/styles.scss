@@ -138,6 +138,9 @@ input.error{
   padding: 0 14px;
   text-decoration: none;
 }
+.thumbnails .thumbnail {
+  min-height: 300px;
+}
 .thumbnails .description {
   min-height: 45px;
 }
