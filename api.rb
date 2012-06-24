@@ -28,7 +28,7 @@ class Apify < Sinatra::Base
   end
 
   def json(result)
-    content_type :json
+    content_type :json, charset: '.'
     result
   end
 end
