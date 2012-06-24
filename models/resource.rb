@@ -10,6 +10,7 @@ class Resource
   field :expire_data, type: Integer
   field :expire_data_at, type: DateTime
   field :locked, type: Boolean
+  field :charset, type: String
 
   validates_presence_of :name, :html, :key, :api_path
   validates_uniqueness_of :name, :api_path

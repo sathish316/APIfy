@@ -13,6 +13,7 @@ class Apify < Sinatra::Base
 
   def find_resource
     resource = Resource.first(conditions: {api_path: params[:resource]})
+    @charset = resource.charset || '.'
     raise Sinatra::NotFound unless resource
     resource
   end
@@ -28,7 +29,7 @@ class Apify < Sinatra::Base
   end
 
   def json(result)
-    content_type :json, charset: '.'
+    content_type :json, charset: @charset
     result
   end
 end
