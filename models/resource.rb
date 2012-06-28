@@ -28,14 +28,10 @@ class Resource
 
   after_create :refresh_count
 
-  def init!
-    eval code
-  end
-
   def all
     if self.data.nil? or expired?
       logger.info "Parsing html: #{html}"
-      self.data = scrapify_klass.all.map {|record| record.attributes.stringify_keys}
+      self.data = scraper.all.map {|record| record.attributes.stringify_keys}
       save
     end
     self.data
@@ -56,35 +52,17 @@ class Resource
     expired
   end
 
-  def scrapify_klass
-    scrapify_klass_name.constantize
+  def scraper
+    ::Scrapify::Scraper.new(self.html, self.key, dom_attributes_with_blocks_hack)
   end
 
-  def code
-    options = self.dom_attributes
-    <<-KLASS
-      class ::#{scrapify_klass_name}
-        include Scrapify::Base
-        html '#{html}'
-
-        key :#{key}
-        self.attribute_names = []
-        #{dom_attribute_selectors.join("\n")}
-      end
-    KLASS
-  end
-
-  def scrapify_klass_name
-    name.camelize
-  end
-
-  def dom_attribute_selectors
-    attribute_declarations = dom_attributes.map do |k,v|
+  def dom_attributes_with_blocks_hack
+    dom_attributes.each_with_object({}) do |(k,v),h|
+      v = v.clone
       type = v['css'] ? 'css' : 'xpath'
       selector, child_selector = v[type].split('|')
-      attribute_declarations = "attribute :#{k}, #{type}: \"#{selector.gsub('"',"'")}\""
-      child_attribute_declarations = child_selector ? "do |element| element.children.send(:#{type}, \"#{child_selector.gsub('"',"'")}\").map(&:value) end" : ""
-      attribute_declarations + child_attribute_declarations
+      v['block'] = lambda{|element| element.children.send(type, child_selector).map(&:value)} if child_selector
+      h[k] = v
     end
   end
 
@@ -96,10 +74,6 @@ class Resource
     self.dom_attributes ||= {}
   end
 
-=begin
-  For existing Resource, Run this migration:
-  Resource.all.update(expire_data: 1440, expire_data_at: 1440.minutes.from_now)
-=end
   def default_expire_attributes
     self.expire_data = 60*24
     self.expire_data_at = self.expire_data.minutes.from_now

@@ -19,7 +19,6 @@ require 'rdiscount'
 
 require './models/resource'
 require './models/resource_count'
-require './db/resources'
 require './config'
 require './helper'
 

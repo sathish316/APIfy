@@ -36,11 +36,6 @@ class Apify < Sinatra::Base
     end
   end
 
-  # Resource config
-  configure do
-    initialize_resources
-  end
-
   # Error config
   not_found do
     haml :'404'

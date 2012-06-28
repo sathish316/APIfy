@@ -4,7 +4,7 @@ gem 'haml'
 gem 'coffee-script'
 gem 'therubyracer'
 gem 'sass'
-gem 'scrapify', '0.0.6'
+gem 'scrapify', '0.0.7'
 gem 'json'
 gem 'activesupport'
 gem "mongoid", "~> 2.4"

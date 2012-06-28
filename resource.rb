@@ -26,7 +26,6 @@ class Apify < Sinatra::Base
     extract_attributes(params[:resource])
     @resource = Resource.new(params[:resource])
     if @resource.save
-      @resource.reload.init!
       redirect "/resources/#{@resource.id}"
     else
       haml :"resources/new"
@@ -47,7 +46,6 @@ class Apify < Sinatra::Base
     extract_attributes(params[:resource])
     @resource = Resource.find(params[:id])
     if @resource.update_attributes(params[:resource])
-      @resource.reload.init!
       redirect "/resources/#{@resource.id}"
     else
       haml :"resources/edit"
