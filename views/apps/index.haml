@@ -6,11 +6,13 @@
 %h3
   Built with APIfy
 
-%p
-  The following apps are built using APIfy as backend.
+%br
 
-%p
-  If you want your App listed here or have App ideas, please send a link using the feedback widget on the right.
+%p.apps_text
+  The following apps are built with APIfy.
+
+%p.apps_text
+  If you're making apps using APIfy or have app ideas, please send a link using the feedback widget.
 
 %br
 
@@ -25,9 +27,9 @@
 .row
   %ul.thumbnails
     %li.span4.app
-      = partial "apps/_rpsls"
+      = partial "apps/_imdb"
     %li.span4.app
-      = partial "apps/_transit"
+      = partial "apps/_chess"
     %li.span4.app
       = partial "apps/_datamapper"
 .row
@@ -37,4 +39,8 @@
     %li.span4.app
       = partial "apps/_rubik"
     %li.span4.app
-      = partial "apps/_chess"
+      = partial "apps/_transit"
+.row
+  %ul.thumbnails
+    %li.span4.app
+      = partial "apps/_rpsls"
