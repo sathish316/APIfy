@@ -11,7 +11,7 @@ You check out <a href="http://www.imdb.com/title/tt0898266/episodes" target="_bl
 
 <a href="http://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes" target="_blank">Wikipedia</a> has a list of episodes for all 5 seasons :)
 
-You "*just gotta break out emacs and modify the perl script*" to fetch all episodes and dump it in database. Or you can just [create](/resources/new) an API in APIfy.
+It's time to "*break out emacs and modify the perl script*" to fetch all episodes and dump it in database. Or you can just [create an API](/resources/new) in APIfy.
 
 1. Open wiki page in Firefox or Chrome.
   
