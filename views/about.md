@@ -5,7 +5,7 @@
 
 ## About 
 
-What if the whole web is an API waiting to be used? APIfy brings to life all the data that is locked up in HTML tables and Wiki pages in the form of JSON APIs.
+What if the whole web is an API waiting to be consumed? APIfy brings to life all the data that is locked up in HTML tables and Wiki pages in the form of JSON APIs.
 
 ### What is APIfy for?
 
