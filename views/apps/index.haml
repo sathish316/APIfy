@@ -22,11 +22,22 @@
 %br
 
 %p.apps_text
-  If you're interested in making apps using APIfy or have app ideas, please send a link using the feedback widget.
+  If you're interested in making apps using APIfy or have app ideas, please contact using
+  %a{href: "mailto:apify.feedback@gmail.com"}
+    Email
+  or Feedback.
 
 %br
 
 .row
+  %ul.thumbnails
+    %li.span4.app
+      = partial "apps/_livewallpaper_olympics"
+    %li.span4.app
+      = partial "apps/_medalsbymillion"
+    %li.span4.app
+      = partial "apps/_withassociates_olympics"
+
   %ul.thumbnails
     %li.span4.app
       = partial "apps/_randomsub"

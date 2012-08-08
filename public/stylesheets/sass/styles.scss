@@ -138,14 +138,14 @@ input.error{
   padding: 0 14px;
   text-decoration: none;
 }
-.thumbnails .thumbnail {
+.thumbnails .thumbnail-small {
+  min-height: 200px;
+}
+.thumbnails .thumbnail-medium {
   min-height: 300px;
 }
 .thumbnails .description {
   min-height: 45px;
-}
-.thumbnails .app .thumbnail {
-  min-height: 330px;
 }
 .apps_text{
   font-size: 14px;
