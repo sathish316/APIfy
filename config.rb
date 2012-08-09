@@ -36,6 +36,11 @@ class Apify < Sinatra::Base
     end
   end
 
+  # NewRelic config
+  configure :production do
+    require 'newrelic_rpm'
+  end
+  
   # Error config
   not_found do
     haml :'404'
