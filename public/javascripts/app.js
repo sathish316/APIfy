@@ -96,4 +96,19 @@ $(function(){
     }
   });
   prettyPrint();
+
+  $('.openqrcode').click(function(event){
+    function qrCodeUrl(url){
+      return "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chl=" + encodeURI(url);
+    }
+    var url = $(this).attr('href');
+    $.fancybox({
+      href: qrCodeUrl(url),
+      width: 210,
+      height: 210,
+      type: "iframe",
+      scrolling: 'no'
+    });
+    event.preventDefault();
+  })
 });
