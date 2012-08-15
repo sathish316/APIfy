@@ -25,7 +25,7 @@ It's time to "*break out emacs and modify the perl script*" to fetch all episode
 
     <br/>
 
-3. Use any Inspect tool to get CSS or XPATH selector for each attribute you want in your API.
+3. Use Firefox / Chrome Inspect to get CSS or XPATH selector for each attribute you want in your API.
 
     Drag
     <a href="javascript: (function(){ var myNamespace = 'findXpath72789'; var myURL='https://dl.dropbox.com/u/848981/it/xp/xp-cld.js'; if (window[myNamespace]) window[myNamespace](); else { var elt=document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]; if (elt) { var script=document.createElement('script'); script.type='text/javascript'; script.src=myURL; elt.appendChild(script); } else alert('You must be on a html page for this to work'); } })(); ; void 0;">XCPath</a>
@@ -44,7 +44,7 @@ It's time to "*break out emacs and modify the perl script*" to fetch all episode
     <br/>
     W3Schools' [CSS selectors](http://www.w3schools.com/cssref/css_selectors.asp) and [XPATH selectors](http://www.w3schools.com/xpath/xpath_syntax.asp) is a useful reference
     <br/>
-    
+
 4. Go to [Create API](/resources/new) in APIfy. Enter HTML URL, API Path and attributes with CSS/XPATH selectors
 
     ![Inspect](/img/tutorial_create_api.png)
