@@ -26,21 +26,25 @@ It's time to "*break out emacs and modify the perl script*" to fetch all episode
     <br/>
 
 3. Use any Inspect tool to get CSS or XPATH selector for each attribute you want in your API.
-    
-    Don't worry if you haven't used CSS or XPATH selectors before. W3Schools' [CSS Selectors](http://www.w3schools.com/cssref/css_selectors.asp) and [XPATH Selectors](http://www.w3schools.com/xpath/xpath_syntax.asp) is all you need
+
+    Drag
+    <a href="javascript: (function(){ var myNamespace = 'findXpath72789'; var myURL='https://dl.dropbox.com/u/848981/it/xp/xp-cld.js'; if (window[myNamespace]) window[myNamespace](); else { var elt=document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]; if (elt) { var script=document.createElement('script'); script.type='text/javascript'; script.src=myURL; elt.appendChild(script); } else alert('You must be on a html page for this to work'); } })(); ; void 0;">XCPath</a>
+    bookmarklet to your web browsers bookmark toolbar to easily find CSS/XPath in any webpage
 
     APIfy has CSS and XPATH cheatsheets:
 
-    - Press 'c' to access CSS cheatsheet
-    - Press 'x' to access XPATH cheatsheet
+    - Press 'c' to open CSS cheatsheet
+    - Press 'x' to open XPATH cheatsheet
 
     To select episode number and title:
 
     - episode: **tr.vevent th**
     - title: **tr.vevent td.summary**
-
+    
     <br/>
-
+    W3Schools' [CSS selectors](http://www.w3schools.com/cssref/css_selectors.asp) and [XPATH selectors](http://www.w3schools.com/xpath/xpath_syntax.asp) is a useful reference
+    <br/>
+    
 4. Go to [Create API](/resources/new) in APIfy. Enter HTML URL, API Path and attributes with CSS/XPATH selectors
 
     ![Inspect](/img/tutorial_create_api.png)
