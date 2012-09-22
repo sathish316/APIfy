@@ -47,6 +47,10 @@ $(function(){
   
   $('#test_index_api').click(function(){
     var url = $(this).attr('data-url');
+    var queryParams = $('#query_params').val();
+    if(queryParams){
+      url += "?" + queryParams;
+    }
     showJson(url, '#index_json_output');
   });
 

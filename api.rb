@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class Apify < Sinatra::Base
   get '/api/:resource.json' do
-    jsonp_or_json find_resource.all.to_json
+    jsonp_or_json find_resource.all(params).to_json
   end
 
   get '/api/:resource/:id.json' do

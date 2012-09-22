@@ -17,8 +17,10 @@ require 'padrino-helpers'
 require 'kaminari/sinatra'
 require 'rdiscount'
 
+require './models/expirable'
 require './models/resource'
 require './models/resource_count'
+require './models/data_cache'
 require './config'
 require './helper'
 

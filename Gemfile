@@ -2,9 +2,9 @@ source "http://rubygems.org"
 gem 'sinatra'
 gem 'haml'
 gem 'coffee-script'
-gem 'therubyracer'
 gem 'sass'
 gem 'scrapify', '0.0.8'
+gem 'therubyracer'
 gem 'json'
 gem 'activesupport'
 gem "mongoid", "~> 2.4"

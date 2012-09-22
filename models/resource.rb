@@ -27,33 +27,47 @@ class Resource
   scope :catalog, lambda {|char| where(name: /^#{char}/i)}
 
   after_create :refresh_count
+  include Expirable
 
-  def all
-    if self.data.nil? or expired?
-      logger.info "Parsing html: #{html}"
-      self.data = scraper.all.map {|record| record.attributes.stringify_keys}
-      save
+  def all(params={})
+    url = url_for(html, params)
+    data_cache = dynamic_url? ? DataCache.find_or_create_by(url: url) : self
+    if data_cache.data.nil? or data_cache.expired?
+      logger.info "Parsing url: #{url}"
+      data_cache.data = scraper_for(url).all.map {|record| record.attributes.stringify_keys}
+      data_cache.save
     end
-    self.data
+    data_cache.data
   end
 
-  def find(id)
-    all.find {|record| record[key] == id}
+  def find(id, params={})
+    all(params).find {|record| record[key] == id}
+  end
+
+  def dynamic_url?
+    url_attributes.present?
+  end
+
+  def url_attributes
+    html.scan(/\:(\w+)\:/).map {|m| m[0]}
+  end
+
+  def example_url_attributes
+    url_attributes.map {|attribute| "#{attribute}=foo"}.join("&")
   end
 
   private
 
-  def expired?
-    expired = Time.now >= self.expire_data_at
-    if expired
-      self.expire_data_at = expire_data.minutes.from_now
-      save
+  def url_for(base_url, params)
+    url = base_url.dup
+    params.each do |k,v|
+      url.gsub!(":#{k}:", v)
     end
-    expired
+    url
   end
 
-  def scraper
-    ::Scrapify::Scraper.new(self.html, self.key, dom_attributes_with_blocks_hack)
+  def scraper_for(url)
+    ::Scrapify::Scraper.new(url, self.key, dom_attributes_with_blocks_hack)
   end
 
   def dom_attributes_with_blocks_hack
