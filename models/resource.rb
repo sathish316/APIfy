@@ -53,7 +53,10 @@ class Resource
   end
 
   def example_url_attributes
-    url_attributes.map {|attribute| "#{attribute}=foo"}.join("&")
+    url_attributes.map do |attribute|
+      example_value = attribute == 'username' ? 'jack' : 'foo'
+      "#{attribute}=#{example_value}"
+    end.join("&")
   end
 
   private
