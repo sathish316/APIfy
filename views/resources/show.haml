@@ -24,7 +24,7 @@
           .api_url
             %a{href: "/api/#{@resource.api_path}.json", target: '_blank'}
               \/api/#{@resource.api_path}.json
-            = if @resource.dynamic_url?
+            - if @resource.dynamic_url?
               ?
               %input.input-large#query_params{value: @resource.example_url_attributes}
           %pre#index_json_output
